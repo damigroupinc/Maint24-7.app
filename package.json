@@ -40,6 +40,7 @@
     "cordova-sqlite-storage": "^3.4.0",
     "core-js": "^2.5.4",
     "ion-back-button-tabs": "^2.2.0",
+    "ionic-angular": "^3.9.9",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.4",
     "tslib": "^1.9.0",
