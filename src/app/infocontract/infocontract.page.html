@@ -1,0 +1,64 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{global.name}} - Contracts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card *ngFor="let item of infoContract">
+    <ion-card-header>
+      <strong>
+        Contract<br />
+      </strong>
+      <br />
+      <strong>
+        Tentant
+      </strong>
+      <br />
+      First Name: {{userData.firstname}}<br />
+      Last Name: {{userData.lastname}}<br />
+      Phone: {{userData.phone}}<br />
+      Email: {{userData.email}}<br />
+      Date Movein: {{item.movein}}<br />
+      Date MoveOut: {{item.moveout}}<br />
+      <br />
+      <strong>
+        Landlord
+      </strong>
+      <br />
+      First Name: {{item.firstname}} <br />
+      Last Name: {{item.lastname}}<br />
+      Phone: {{item.phone}}<br />
+      Email: {{item.email}}<br />
+      <br />
+      <strong>
+        Relevant Information
+      </strong>
+      <br />
+      Singnature Contract: {{ item.signature }}<br />
+      Contract End: {{ item.endcontract  }}<br />
+      Montly Rent: {{ item.rent }}<br />
+      Deposit: {{ item.deposit }}<br />
+      Last Month: {{ item.lastMonth }}<br />
+      Security: {{ item.security }}<br />
+      Penalty: {{ item.penalty }}<br />
+    </ion-card-header>
+    <!-- Icones da pagina principal -->
+    <ion-footer>
+    <ion-chip outline color="dark" (click)="goFinance()">
+      Finance
+      <ion-icon ios="ios-finance"></ion-icon>
+    </ion-chip>
+          <!--  <ion-toolbar>
+        <ion-chip outline color="dark" (click)="goComplete()">
+          Clauses
+          <ion-icon ios="ios-finance"></ion-icon>
+        </ion-chip>
+      </ion-toolbar> -->
+    </ion-footer>
+  </ion-card>
+</ion-content>

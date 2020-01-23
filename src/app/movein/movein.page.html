@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ global.name }} - Move in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+
+      <div *ngIf="photo">
+        <ion-item class="drop-categoria" style="margin-bottom: 1%;">
+          <img src="{{ photo }}" width="100%" height="100%" style="border-radius: 10%;">
+        </ion-item>
+      </div>
+
+      <ion-label>
+        Move-In Inspection <br />
+      </ion-label>
+      <ion-label>
+        Please, record anythings you see in your inspection!
+      </ion-label>
+      <!-- <ion-item class="drop-categoria" style="margin-bottom: 1%; ">
+        <ion-select [(ngModel)]="item" cancelText="No" okText="Yes" [value]='' placeholder=" " interface="popover">
+          <ion-select-option *ngFor="let item of listServices" [value]="item.id" [selected]="true">{{item.description}}</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+      <br /> <br />
+      <ion-label>Description: <br /></ion-label>
+      <ion-item class="custom" style="margin-bottom: 1%;">
+        <ion-textarea [(ngModel)]='description' name='description' id='description' type='text' rows='10'
+          maxlength='500' color='primary' placeholder='Description'>
+        </ion-textarea>
+      </ion-item>
+
+      <ion-button color="warning" class="pt-xs--4" ion-button (click)="takePictureNO()">
+        <ion-icon name="camera" size="small"></ion-icon>
+        Take Picture
+      </ion-button>
+      <ion-button color="success" class="pt-xs--4" ion-button (click)="sendNewOrder()">
+        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+        Send
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

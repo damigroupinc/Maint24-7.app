@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>    
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ global.name }} - History 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content> 
+  
+<ion-card>
+  <ion-card-content style="background-color:GhostWhite" >
+    <p style='font-size: 11px;'>
+      Order: {{ order_id }} | {{ order_apt }} <br>
+      Date: {{ order_date_opened_string| date:"MM/dd/yyyy" }} | {{ order_status }}       
+    </p>
+  </ion-card-content>
+</ion-card>
+
+<ion-content ion-content class="ion-padding"> 
+  <ion-card *ngFor="let item of historyOrders">        
+      <ion-card-content>
+        <p *ngIf="item.image">
+          <img src="{{ item.image}}" classe="container"/>
+        </p>
+        <p *ngIf="item.description">  
+          Description: {{ item.description }} <br /> 
+          Date: {{ item.date_created }} <br />
+        </p>
+      </ion-card-content>
+  </ion-card>
+</ion-content>

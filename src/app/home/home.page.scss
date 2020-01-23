@@ -1,0 +1,25 @@
+ion-content { 
+/*  --ion-background-color:rgb(0, 0, 0);
+  --color:rgba(76,185,196,1) 0%;*/
+  --background: transparent;
+  --border-color: transparent;
+}
+
+ion-card, .card-ios, .card-md {  
+
+  img { width: 75px; height: 75px; align-content: center;}
+  background: rgb(14, 13, 13) 80% !important;
+  border-radius: 20px !important; // faz os cantos arredondados!
+  box-shadow: 25; 
+  max-height: 75vh; // Tamanho dos cards   
+  margin-bottom: 0.0rem;
+  margin-top: 0.0rem;
+  margin-right: 0.00rem;
+  margin-left: 0.00rem; 
+}
+
+.topo {
+margin-top: 2.0rem !important;
+
+}
+ 

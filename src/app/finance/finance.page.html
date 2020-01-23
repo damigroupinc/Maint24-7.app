@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="home"></ion-back-button>
+  </ion-buttons>
+    <ion-title>{{ global.name }} - Finance</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-card>
+  <ion-card-content>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>             
+        <div>
+          <strong>
+            Due date
+          </strong>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <strong>
+          Value
+        </strong>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div>
+        <strong>
+          Fees
+        </strong>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-card *ngFor="let item of listFinance">
+  <ion-card-content>
+      <ion-col>
+          {{ item.datepaid }}
+      </ion-col>
+    
+      <ion-col>
+          {{ item.valuepaid }}
+      </ion-col>
+    
+      <ion-col>
+          {{ item.latepfee }}
+      </ion-col>
+    
+
+  </ion-card-content>
+</ion-card>
+
+  </ion-grid>
+  </ion-card-content>
+  </ion-card>
+
+
+

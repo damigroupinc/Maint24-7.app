@@ -1,0 +1,36 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{global.name}} - About</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <br />
+  <br />
+  <ion-card>
+    <ion-card-header>
+
+        <ion-card-title>
+          <ion-row class="ion-align-items-center ion-justify-content-center">
+                <ion-col class="ion-align-items-center">
+                  <img src='assets/img/logo.png' width='10%' height='10%'>
+                </ion-col>
+              </ion-row>
+          </ion-card-title>     
+      
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-row class="ion-align-items-center ion-justify-content-center">
+        Version: {{global.version}}<br />
+        Date: {{global.published}} <br />
+        {{global.website}} <br />
+        Copyright © 2020 - {{global.company}} <br /> 
+        All rights reserved. <br />
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

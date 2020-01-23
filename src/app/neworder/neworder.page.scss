@@ -1,0 +1,19 @@
+img {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 5%;
+}
+    
+ion-card, .card-ios, .card-md {
+    border-radius:20px !important;
+    box-shadow: 20;
+} 
+
+.alert-radio-icon{
+    border-radius: 0 !important;
+    border: none !important;
+    height: 40px !important;
+    width: 40px !important;
+    background-size: 40px 40px !important;
+    background-repeat: no-repeat ;
+}

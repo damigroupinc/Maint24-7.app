@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- *ngIf = true if user.classe = ADMIN or user.classe = LANDLORD
+    *ngIf = false if user.classe = USER or TENANTS
+    ion-card-content, ion-card-header, ion-card-title, ion-card-subtitle.
+  -->
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header color="success">
+              <ion-card-subtitle>
+                <br />
+                Welcome to Maint24/7
+              </ion-card-subtitle>
+              <ion-card-title>
+                <strong>
+                {{ userData.name }}
+                </strong>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Before we start work it will be necessary
+              set up some important details. <br /> <br />
+
+              These details can be changed later<br />
+              by accessing the profile page.<br /> <br />
+
+              Start by clicking on the your function on the Maint24/7:
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!-- User / Tenant -->
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          
+            <ion-card>
+              <ion-card-header color="light">
+                <img src="../../assets/img/landlord.png" />
+              </ion-card-header>
+              <ion-item (click)="gotoLandLord()" color="success">
+                <ion-label>Landlord</ion-label>
+              </ion-item>
+            </ion-card>
+        
+        </ion-col>
+        <ion-col>
+        
+            <ion-card>
+              <ion-card-header color="light">
+                <img src="../../assets/img/tenants.png" />
+              </ion-card-header>
+              <ion-item (click)="gotoTenant()" color="success">
+                <ion-label>Tenant</ion-label>
+              </ion-item>
+            </ion-card>
+          
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>  
+</ion-content>
+

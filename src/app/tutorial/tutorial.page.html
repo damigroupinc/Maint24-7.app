@@ -1,0 +1,18 @@
+<ion-slides paginationClickable=true initialSlide=0 loop=true autoplay=1000 speed=2000 #slideWithNav>
+
+  <ion-slide *ngFor="let item of textos">
+    <ion-item class="itemPosicao" color="dark">
+      {{item.id}}
+    </ion-item>
+    <img src="{{item.img}}">
+    <ion-item color="primary">
+      {{item.title}} | {{item.text}}
+    </ion-item>
+  </ion-slide>
+</ion-slides>
+
+<div class="swiper-button-next" (click)="slideNext()"></div>
+<div class="swiper-button-prev" (click)="slidePrev()"></div>
+
+
+

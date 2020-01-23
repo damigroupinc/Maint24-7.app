@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{global.name}} - Recover<br> Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class='ion-padding' class='loginPage' scroll='false'>
+  <ion-grid style='height: 100%'>
+    <ion-row class="ion-align-items-center ion-justify-content-center" style='height: 80%'>
+      <ion-grid class='login-container'>
+        <form #loginForm='ngForm' (ngSubmit)='sendEmailChangePassword()' autocomplete='off' class='login-form'>          
+            <ion-card>
+              <ion-header>              
+                <ion-toolbar align="center" >
+                  <ion-label>
+                    Enter your email or phone number <br>registered in the database
+                    and your <br>password will be sent by text message.<br>
+                  </ion-label>
+                </ion-toolbar>
+             </ion-header>
+              <ion-card-content>
+                <ion-item>
+                  <ion-label position="floating" color="primary">Email</ion-label>
+                  <ion-input name='email' id='email' type='email' required style="background-Color: '#red';">
+                  </ion-input>
+                  <ion-label position="floating" color="primary">Phone Number</ion-label>
+                  <ion-input name='phone' id='phone' type='phone' required [(ngModel)]='email'
+                    style="background-Color: '#red';">
+                  </ion-input>
+                </ion-item>
+              </ion-card-content>
+              <div align="center">
+                <ion-button color="success" class="pt-xs--4" ion-button (click)="sendEmailChangePassword()">
+                  <ion-icon name="checkmark-circle" size="small"></ion-icon>
+                  Request
+                </ion-button>
+              </div>
+              <br />
+            </ion-card>         
+        </form>
+      </ion-grid>
+    </ion-row>
+  </ion-grid>
+</ion-content>

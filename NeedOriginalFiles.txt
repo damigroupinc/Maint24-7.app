@@ -1,0 +1,21 @@
+Need Original Files 
+*******************
+
+Folders
+1. resources
+2. src
+3. typings
+
+Files
+1. angular
+2. browserlist
+3. config
+4. ionic.config
+5. karma.conf
+6. package
+7. package.lock
+8. README
+9. tsconfig.app
+10.tsconfig
+11.tsconfig.spec
+12.tslint

@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ global.name }} - Units</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <br />
+    <ion-button color="success" class="pt-xs--2" ion-button (click)="insertUnit()">
+      <ion-icon name="add" size="small"></ion-icon>
+      ADD PROPERTIES
+    </ion-button>
+  </ion-item>
+  <ion-card *ngFor="let item of listUnits">
+    <ion-card-content>
+
+      <ion-icon *ngIf="item.tenant" size="small" color="primary" ios="ios-key" md="md-key">
+      </ion-icon>
+      <label *ngIf="item.tenant" color="primary">
+        - Rented
+      </label>
+
+      <ion-icon *ngIf="!item.tenant" size="small" color="primary" ios="ios-checkmark-circle-outline"
+        md="md-checkmark-circle-outline">
+      </ion-icon>
+
+      <label *ngIf="!item.tenant">
+        <label *ngIf="!item.phone">
+          <label *ngIf="!item.email">
+            <label color="primary">
+              - To be for rent
+            </label>
+          </label>
+        </label>
+      </label>
+      <!-- 
+        || = OR
+        && = AND
+      -->
+      <label *ngIf="!item.tenant">
+        <label *ngIf="item.phone || item.email">
+            <label color="secondary">
+              - Waiting for tenant setup 
+            </label>
+        </label>
+      </label>
+
+      <p>
+        <ion-label *ngIf="item.name" color='primary' class="ion-text-left">
+          Unit: {{ item.name }}
+        </ion-label>
+      </p>
+
+
+      <p>
+        <ion-label *ngIf="item.email" color='primary' class="ion-text-left">
+          E-mail: {{ item.email }}
+        </ion-label>
+
+        <ion-label *ngIf="item.phone" color='primary' class="ion-text-left">
+          Phone: {{ item.phone }}
+        </ion-label>
+        <ion-label *ngIf="item.tenant" color='primary' class="ion-text-left">
+          Tenant: {{ item.tenant }} Contract: {{ item.contract_id }}
+        </ion-label>
+      </p>
+
+      <ion-item>
+
+        <ion-button class="pt-xs--2" color='tertiary' (click)="contracts(item.id)">
+          <ion-icon size="small" name="md-paper"></ion-icon>
+        </ion-button>
+
+        <ion-button class="pt-xs--2" color='secondary' (click)="detailUnit(item.id, item.name, item.email, item.phone)">
+          <ion-icon size="small" name="ios-list-box"></ion-icon>
+        </ion-button>
+
+        <ion-button class="pt-xs--2" color='primary' (click)="updateUnit(item.id, item.name, item.email, item.phone)">
+          <ion-icon size="small" name="create"></ion-icon>
+        </ion-button>
+
+        <div *ngIf="!item.tenant">
+          <div *ngIf="!item.phone">
+            <div *ngIf="!item.email">
+              <ion-button size="small" class="pt-xs--2" color="danger"
+                (click)="deleteUnit(item.id, item.name, item.email, item.phone)">
+                <ion-icon name="trash" size="small"></ion-icon>
+              </ion-button>
+            </div> 
+          </div>
+        </div>
+        <!--
+        <ion-button class="pt-xs--2" color="warning" (click)="deleteUnit(item.id, item.name, item.email, item.phone)">
+          <!-- Advanced: explicity set the icon for each platform 
+          <ion-icon ios="logo-usd" md="logo-usd"></ion-icon>
+        </ion-button> 
+        -->
+        
+        <div *ngIf="item.tenant">
+        <ion-button class="pt-xs--2" color="success" (click)="viewServiceOrders(item.tenant)">
+            <ion-icon ios="ios-construct" md="md-construct"></ion-icon>
+          </ion-button>
+        </div>
+
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

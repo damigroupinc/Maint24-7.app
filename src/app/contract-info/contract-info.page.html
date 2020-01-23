@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="success">Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class='loginPage' scroll='false'>
+
+
+  <form #loginForm='ngForm' autocomplete='off' class='login-form'>
+
+    <ion-item>
+      <ion-label>Number: {{contract_number}} <br /></ion-label>
+    </ion-item>
+   
+      <ion-item>
+        <ion-label>Name: <br /></ion-label>
+        <ion-input #inputRef value="name" name='name' [(ngModel)]='contract_name' type='name'>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Description: <br /></ion-label>
+        <ion-textarea rows="3" value="description" name='description' [(ngModel)]='description' type='description'>
+        </ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Clause: <br /></ion-label>
+        <ion-textarea rows="3" placeholder="Clause..." name='clause' [(ngModel)]='clauses' type='clause'
+          style="background-Color: '#red';">
+        </ion-textarea>
+      </ion-item>
+
+      <ion-button color="success" class="pt-xs--4" [disabled]='!loginForm.form.valid' (click)="gosaveContract(contract_id, contract_name, description, clauses, inputRef)">
+        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+        Send
+      </ion-button>
+  </form>
+
+
+</ion-content>

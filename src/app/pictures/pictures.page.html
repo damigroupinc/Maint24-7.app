@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button  defaultHref="home"></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{global.name}} - Take Picture</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content> 
+  <ion-card>
+    <ion-card-content>
+      <p *ngIf="order_building" style='font-size: 11px;'>
+        Order: {{ order_id }} Date: {{ order_date_created | date:"MM/dd/yyyy" }} | {{ order_status }}       
+      </p>
+      <div *ngIf="order_building">
+        <strong>
+          <p style='font-weight: bold; font-size: 18px; color: rgb(20, 17, 17);' 
+            absolute-drag>
+            {{ order_building }} - {{ order_apt }} <br />
+          </p>
+        </strong>
+      </div>
+      <div *ngIf="photo">
+        <img src="{{ photo }}" width="80%" height="80%"/>
+      </div>
+      <ion-item>
+        <ion-textarea 
+          [(ngModel)]="description" 
+          rows="2" 
+          placeholder="Description...">
+        </ion-textarea>
+      </ion-item>
+      <ion-footer class="ion-padding">
+        <ion-button color="warning"  class="pt-xs--4" ion-button  (click) ="takePicture()">
+          <ion-icon name="camera" size="small"></ion-icon>
+          Take Picture
+        </ion-button>
+        <ion-button color="success"  class="pt-xs--2" ion-button (click) ="sendHistoryRequest()">      
+          <ion-icon name="checkmark-circle" size="small"></ion-icon>
+          Save
+        </ion-button>
+      </ion-footer>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

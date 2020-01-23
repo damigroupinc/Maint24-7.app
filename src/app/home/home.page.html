@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{ global.name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ng-template [ngIf]="ImLandLord()">
+    <!-- 
+      Panel for:BUILDINGS/UNITS/CONTRACT/PROFILE
+    -->
+    
+      
+    <ion-grid>
+        
+      <ion-row>
+      <ion-col>
+        <div class="ion-padding">
+          <ion-card>
+            <ion-card-header color="secondary" (click)="goUnits()">
+              <div align="center">
+                <img src="../../assets/img/menu/properties.png" />
+                Properties
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div class="ion-padding">
+          <ion-card>
+            <ion-card-header color="danger" (click)="goContracts()">
+              <div align="center">
+                <img src="../../assets/img/menu/contract.png" />
+                Contracts
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div class="ion-padding">
+          <ion-card>
+            <ion-card-header color="success" (click)="viewServiceOrders()">
+              <div align="center">
+                <img src="../../assets/img/menu/history.png" />
+                History
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    </ion-grid>
+  </ng-template>
+
+  <ng-template [ngIf]="ImTenant()">
+    <!-- 
+      Panel for: MOVE-IN/MOVE-OUT/REPAIR/RENT/CONTRACT/PROFILE
+    -->
+    <div class="topo" >
+      <ion-grid>
+        <ion-row>
+
+          <ion-col>
+            <div class="ion-padding">
+              <ion-card> 
+                <ion-card-header color="warning" (click)="makeRepair()">
+                  <div align="center">
+                    <img src="../../assets/img/menu/orders.png" />
+                    Orders
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col >
+            <div class="ion-padding">
+              <ion-card >
+                <ion-card-header color="success" (click)="makePay()">
+                  <div align="center">
+                    <img src="../../assets/img/menu/payrent.png" />
+                    Pay Rent
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="ion-padding">
+              <ion-card>
+                <ion-card-header class="ion-text-center" (click)="makeMoveIn()" color="light">
+                  <div align="center">
+                    <img src="../../assets/img/menu/move-in.png" />
+                    Move-in
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="ion-padding">
+              <ion-card>
+                <ion-card-header class="ion-text-center" (click)="makeMoveOut()" color="secondary">
+                  <div align="center">
+                    <img src="../../assets/img/menu/move-out.png" />
+                    Move-out
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="ion-padding">
+              <ion-card>
+                <ion-card-header class="ion-text-center" (click)="makeContract()" color="primary">
+                  <div align="center">
+                    <img src="../../assets/img/menu/contract.png" />
+                    Contract
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="ion-padding">
+              <ion-card>
+                <ion-card-header class="ion-text-center" color="success" class="center" (click)="viewServiceOrders()">
+                  <div align="center">
+                    <img src="../../assets/img/menu/history.png" />
+                    History
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ng-template>
+</ion-content>

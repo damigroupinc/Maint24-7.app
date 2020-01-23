@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="secondary">Finance</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" class='loginPage' scroll='false'>
+  <form #loginForm='ngForm' autocomplete='off' class='login-form'>
+    
+    <ion-item>
+      <ion-label>Number: {{contract_number}} <br /></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name: {{contract_name}} <br /></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Rent: <br /></ion-label>
+      <ion-input placeholder='Rent...' [(ngModel)]='finance_rent' 
+        name='finance_rent' id='finance_rent' type='number'
+        style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Deposit: <br /></ion-label>
+      <ion-input placeholder='Deposit...' [(ngModel)]='finance_deposit' 
+        name='finance_deposit' id='finance_deposit'
+        type='number' style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Last month: <br /></ion-label>
+      <ion-input placeholder='Last month...' [(ngModel)]='finance_lastmonth' 
+        name='finance_lastmonth'
+        id='finance_lastmonth' type='number' style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Security: <br /></ion-label>
+      <ion-input placeholder='Security...' [(ngModel)]='finance_security' 
+        name='finance_security' id='finance_security'
+        type='number' style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Penalty: <br /></ion-label>
+      <ion-input placeholder='Penalty...' [(ngModel)]='finance_penalty' 
+        name='finance_penalty' id='finance_penalty'
+        type='number' style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Paypal ID: <br /></ion-label>           
+      <ion-input placeholder='Paypal id...' [(ngModel)]='finance_paypalid' 
+        name='finance_paypalid' id='finance_paypalid'
+        type='string' style="background-Color: '#red';">
+      </ion-input>
+    </ion-item>
+    <ion-button color="success" class="pt-xs--4" [disabled]='!loginForm.form.valid'>
+      <ion-icon name="checkmark-circle" size="small"></ion-icon>
+      Send
+    </ion-button>
+
+  </form>
+</ion-content>

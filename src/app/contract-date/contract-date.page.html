@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title color="primary">Dates</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class='loginPage' scroll='false'>
+
+  <form #loginForm='ngForm' autocomplete='off' class='login-form'>
+    <ion-item>
+      <ion-label>Number: {{contract_number}} <br /></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Name: {{contract_name}} <br /></ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Signature</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY"  [(ngModel)]="date_signature" name="date_signature"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Endcontract</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date_endcontract" name="date_endcontract"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Move-In</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date_movein" name="date_movein"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Move-Out</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date_moveout" name="date_moveout"></ion-datetime>
+    </ion-item>
+    <ion-button color="success" class="pt-xs--4" [disabled]='!loginForm.form.valid'  (click)="gosaveContract(contract_id, date_signature, date_endcontract, date_movein, date_moveout)">
+      <ion-icon name="checkmark-circle" size="small"></ion-icon>
+      Send
+    </ion-button>
+  </form>
+</ion-content>

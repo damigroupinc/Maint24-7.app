@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>  
+    <ion-title>{{ global.name }} Change Password</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Current Password: <br /></ion-label>
+        <ion-input #inputCurrent     
+          placeholder='current password' 
+          name='currentpassword' 
+          id='currentpassword' 
+          type='password' 
+          required 
+          [(ngModel)]='currentpassword' 
+          style="background-Color: '#red';"
+          (focusout)='checkCurrentPassword(inputCurrent)'>
+          <!-- ionBlur work for focus out -->
+        </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>New Password: <br ></ion-label>
+        <ion-input #inputnew
+          password
+          placeholder='newpassword' name='newpassword' id='newpassword' type='password' required [(ngModel)]='newpassword'>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Confirm Password: <br ></ion-label>
+        <ion-input  #inputConfirm
+          password
+          placeholder='confirmpassword' name='confirmpassword' id='confirmpassword' type='password' required [(ngModel)]='confirmpassword'
+          style="background-Color: '#red';"
+          (focusout)='checkConfirmPassword(inputnew)'>
+        </ion-input>
+      </ion-item>
+
+      <ion-button color="success" class="pt-xs--4" ion-button                   
+        (click)="changePasswordUser()">
+        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+        Change Your Password
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,12 @@
+Configurar cliente de email
+O aplicativo de email “Microsoft Outlook 2010® for Windows®” pode detectar automaticamente as configurações desta conta de email.
+
+Opte por configurar uma nova conta de email em “Microsoft Outlook 2010® for Windows®”.
+Quando “Microsoft Outlook 2010® for Windows®” solicitar o endereço de email, insira “office@vieirafirm-constructiondesign.com”.
+Use a senha da conta de email como a senha.
+Se a configuração automática falhar, configure a conta usando as definições manuais.
+
+
+
+ak1Qservices
+Sonepaint19

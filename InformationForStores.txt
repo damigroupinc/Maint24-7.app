@@ -1,0 +1,67 @@
+Privacy - Camera Usage Description
+**********************************
+This app requests permission to use the camera to take pictures of the services to be executed, 
+those that have already been closed and photos to prove the quality of the service execution!
+
+Privacy - Calendars Usage Description
+**************************************
+We use the API created by our company to access our database of our own which contains our information and 
+which contains our proprietary data! We create our own database and our own API and consume the data 
+from our API to process our required information!
+Fixes some features from previous version. This feature 
+
+Description for Version 1.2
+***************************
+1.1.01151200
+New functions incorporated in Maint247:
+1-Payment of someone with PayPal, Credit Card and others.
+2-management of contracts including receipts.
+
+Description for Version 1.1
+***************************
+New updates and resources for landlords and tenants!
+
+Maint247 for property owners and trying to make their service orders 24/7
+
+The App's main purpose is to manage the properties that the landlord has rented and 
+allowed the landlord to have a good upkeep and a good history of his lease period.
+
+This version is a trial version for all stores and users.
+
+Description Version 1.0
+***********************
+Maint247 for property owners and tentants to make their service orders 24/7
+
+The App’s main purpose is to manage the properties that the landlord has rented and allow the landlord to 
+have a good maintenance and a good history of his lease period.
+
+This allows the homeowner to know everything that is happening to their real estate in real time, 
+allowing them to manage their real estate that will be available in their App so they can consult and 
+study which strategic paths to take when making decisions and strategic planning.
+
+The great proposal of the App is that the property owner will have in real time the control of 
+all demands opened by the tenant and the movement made in his properties. 
+He will have on hands 24/7 the service online and on cell phone.
+
+The App has a dashboard page where the user can manage all their units through indicators of quality, 
+capacity and productivity as their maintenance staff and landlords. 
+This will allow an accurate analysis of results, allowing a better strategic planning.
+
+When the tenant has any needs in the property, he will open a work order  that order  
+will reach the owner of the property who will get his team to answer the order, 
+selecting a service provider to solve the problem in Open order. 
+By fixing the problem, the tenant will close the work order and evaluate work and service delivered.
+
+Open work orders will have a history containing records, such as complaints, compliments, problem detail records, and 
+any other communication that needs to be recorded and saved as history.
+
+The landlord will have access to all open orders for that property. 
+In addition to making the necessary records. The landlord will be able to use the indices to check which part is being the most problematic, 
+thus allowing the landlord to better manage the use, care and charges to the property owner.
+
+The App has two functions that are move-in and move-out, important for both the resident or the owner of the property. 
+These functions, once performed, do not allow to delete or change remaining in the system for consultation.
+At the end of the leasing, upon release of the unit, the system will email the history along with the move-in 
+and move-out to the landlord and the tenant  to record for any eventuality.
+
+Copyright © 2019 - One Quality Services - All rights reserved.

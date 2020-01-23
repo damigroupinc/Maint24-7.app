@@ -1,0 +1,157 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>  
+    <ion-title>{{ global.name }} - New</ion-title>
+  </ion-toolbar>
+</ion-header> 
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <table>
+        <tr>
+          <td>   
+            <ion-thumbnail slot="start">
+              <div 
+              ngSwitch="{{order_description}}">
+                <div *ngSwitchCase="'PAINTING'" >
+                  <img 
+                    src="../../assets/img/services/painting.png" 
+                    width="50px" 
+                    height="50px" 
+                  style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'CLEANING'" >
+                  <img 
+                    src="../../assets/img/services/cleaning.png" 
+                    width="50px" 
+                    height="50px" 
+                  style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'CARPENTRY'" >
+                  <img 
+                    src="../../assets/img/services/carpentry.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'FLOORING'" >
+                  <img 
+                    src="../../assets/img/services/flooring.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'COUNTERTOPS'" >
+                  <img 
+                    src="../../assets/img/services/countertops.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                
+                <div *ngSwitchCase="'TILES BACKSPLASH'" >
+                  <img 
+                    src="../../assets/img/services/tiles.png"
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'ELECTRICAL'" >
+                  <img 
+                    src="../../assets/img/services/electrical.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'PATCHES'" >
+                  <img 
+                    src="../../assets/img/services/patches.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'TOUCH-UP'" >
+                  <img 
+                    src="../../assets/img/services/touch-up.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>
+                <div *ngSwitchCase="'PLUMBING'" >
+                  <img 
+                    src="../../assets/img/services/plumbing.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>              
+                <div *ngSwitchCase="'EXTERIOR'" >
+                  <img 
+                    src="../../assets/img/services/exterior.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;"> 
+                </div>              
+                <div *ngSwitchCase="'MOVE-IN'">
+                  <img 
+                    src="../../assets/img/services/move-in.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;">
+                </div>
+                <div *ngSwitchCase="'MOVE-OUT'" >
+                  <img 
+                    src="../../assets/img/services/move-out.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;">
+                </div>
+                <div *ngSwitchCase="'OTHERS'" >
+                  <img 
+                    src="../../assets/img/services/others.png" 
+                    width="50px" 
+                    height="50px" 
+                    style="border-radius: 20%;">
+                </div>
+              </div>
+            </ion-thumbnail>
+          </td>
+          <td>
+            <ion-label>   - 
+              {{ order_description }} 
+            </ion-label>
+          </td>
+        </tr>
+      </table>
+      <div *ngIf="photo">
+        <ion-item class="drop-categoria" style="margin-bottom: 1%;">
+          <img src="{{ photo }}" width="100%" height="100%" style="border-radius: 10%;">
+        </ion-item>
+      </div>
+      
+      <ion-item class="custom" style="margin-bottom: 1%;">
+        <ion-textarea 
+          [(ngModel)]='description' 
+          name='description' 
+          id='description' 
+          type='text'
+          rows='3' 
+          maxlength='500'
+          color='primary'
+          placeholder='Description'>
+        </ion-textarea>
+      </ion-item>
+      <ion-button color="warning" class="pt-xs--4" ion-button                   
+        (click)="takePictureNO()">
+        <ion-icon name="camera" size="small"></ion-icon>
+        Take Picture
+      </ion-button>
+      <ion-button color="success" class="pt-xs--4" ion-button                   
+        (click)="sendNewOrder()">
+        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+        Send
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

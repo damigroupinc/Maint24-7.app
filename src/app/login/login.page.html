@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ global.name }} - Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class='ion-padding' class='loginPage' scroll='false'>
+  <ion-grid style='height: 100%'>
+    <ion-row class="ion-align-items-center ion-justify-content-center" style='height: 80%'>
+      <ion-card>
+        <ion-grid class='login-container'>
+          <form #loginForm='ngForm' (ngSubmit)='login()' autocomplete='off' class='login-form'>
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <ion-list inset>
+                    <ion-item>
+                      <ion-label position="floating" color="primary">Username</ion-label>
+                      <ion-input name='username' id='loginField' type='text' required [(ngModel)]="username">
+                      </ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label position="floating" color="primary">Password</ion-label>
+                      <ion-input name='password' id='passwordField' type='password' required [(ngModel)]='password'>
+                      </ion-input>
+                    </ion-item>
+                  </ion-list>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+            <div align="center">
+              <ion-row>
+                <ion-col class="ion-align-items-center">
+                  <ion-button color='secondary' ion-button id='singin' full fulltype='submit' (click)='login()'
+                    [disabled]='!loginForm.form.valid'>
+                    <ion-icon name='sync'></ion-icon>
+                    Log-in
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </div>
+          </form>
+        </ion-grid>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

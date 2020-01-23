@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{global.name}} - Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" class='loginPage' scroll='true'>
+  <ion-card>
+    <ion-card-content>
+      <form #loginForm='ngForm' (ngSubmit)='login()' autocomplete='off' class='login-form'>
+        <ion-item>
+          <ion-label position="floating" color="primary">Username</ion-label>
+          <ion-input name='username' id='username' type='text' required [(ngModel)]='username'
+            style="background-Color: '#red';">
+          </ion-input>
+          <ion-label position="floating" color="primary">Email</ion-label>
+          <ion-input name='email' id='email' type='email' required [(ngModel)]='email'
+            style="background-Color: '#red';">
+          </ion-input>
+          <ion-label position="floating" color="primary">Phone</ion-label>
+          <ion-input name='phone' id='phone' type='phone' required [(ngModel)]='phone'
+            style="background-Color: '#red';">
+          </ion-input>
+          <ion-label position="floating" color="primary">Password</ion-label>
+          <ion-input name='password' id='passwordField' type='password' required [(ngModel)]='password'>
+          </ion-input>
+          <ion-label position="floating" color="primary">Confirm Password</ion-label>
+          <ion-input name='Confirmpassword' id='passwordField' type='password' required [(ngModel)]='confirmpassword'>
+          </ion-input>
+        </ion-item>
+        <div align="center">
+          <ion-button color="success" class="pt-xs--4" ion-button (click)="sendNewUser()"
+            [disabled]='!loginForm.form.valid'>
+            <ion-icon name="checkmark-circle" size="small"></ion-icon>
+            Send
+          </ion-button>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

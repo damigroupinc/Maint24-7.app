@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contracts Records</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class='loginPage' scroll='false'>
+  <ion-list lines="inset" *ngFor="let item of listContracts">
+    <ion-label class="ion-text-left">
+      <ion-text color="primary">
+        <p>
+          <ion-icon name="checked"></ion-icon>
+          {{ item.name }} {{ item.paypalid }}
+        </p>
+      </ion-text>
+    </ion-label>
+    <ion-item>
+      <ion-button class="pt-xs--2" color="danger" 
+        (click)="deleteContracts(item.id)">
+        <ion-icon size="small" name="trash" size="small"></ion-icon>
+      </ion-button>
+      <ion-button class="pt-xs--2" color="success" tab="contractinfo" 
+        (click)="goInfo(
+          item.id, 
+          item.number, 
+          item.name, 
+          item.description, 
+          item.clauses, 
+          item.rent, 
+          item.deposit, 
+          item.lastmonth, 
+          item.security, 
+          item.penalty, 
+          item.signature, 
+          item.endcontract, 
+          item.movein, 
+          item.moveout,
+          item.paypalid
+          )">
+        <ion-icon size="small" name="ios-information-circle-outline"></ion-icon>
+      </ion-button> <!-- rent deposit lastmonth security penalty -->
+      <ion-button class="pt-xs--2" color="secondary" tab="contractfinance" (click)="goFinance(item.id, item.number, item.name, item.description, item.clauses, item.rent, item.deposit, item.lastmonth, item.security, item.penalty, item.signature, item.endcontract, item.movein, item.moveout, item.paypalid)">
+        <ion-icon size="small" name="logo-usd"></ion-icon>
+      </ion-button>
+      <ion-button class="pt-xs--2" tab="contractdetails" color="primary" (click)="goDate(
+        item.id, item.number, item.name, item.description, item.clauses, item.rent, 
+        item.deposit, item.lastmonth, item.security, item.penalty, item.signature,
+         item.endcontract, item.movein, item.moveout, item.paypalid)">
+        <ion-icon size="small" name="calendar"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

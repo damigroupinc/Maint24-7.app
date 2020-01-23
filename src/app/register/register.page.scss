@@ -1,0 +1,35 @@
+/*ion-content{
+    --background: url('../../assets/img/background.jpg') 0 0/100% 100%;
+    --color:rgba(76,185,196,1) 0%;
+    }  */
+
+  .login-container {
+      border-radius: 20px;
+      opacity: 0.9;
+      width: 50%;
+      text-align: center;
+      background-color: white;
+    }
+  
+    .login-logo{
+        vertical-align: center;
+        text-align: center;
+    }
+  
+    .login-form{
+        opacity: 2!important;
+    }
+  
+    .redCssClassName {
+      .toast-wrapper {
+        background: red;
+        opacity: 0.8;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .toast-message {
+        font-size: 3.0rem;
+        color: white;
+      }
+    }
+  
