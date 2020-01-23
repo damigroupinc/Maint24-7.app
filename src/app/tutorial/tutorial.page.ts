@@ -10,7 +10,7 @@ import { IDataTutorial } from './IDataTutorial';
   templateUrl: './tutorial.page.html',
   styleUrls: ['./tutorial.page.scss'],
 })
-export class TutorialPage {
+export class TutorialPage implements OnInit {
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
   sliderOne: any;
 
@@ -26,12 +26,17 @@ export class TutorialPage {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {
+  ) {}
+
+  ngOnInit() {
+    this.textos = this.getData();
     console.log(' Olha aqui os ----> ', this.textos);
   }
 
   getData() {
-    this.http.get("assets/img/tutorial/tutorialenus.JSON").subscribe((data) => { this.textos = data; console.log(this.textos); });
+    this.http.get("assets/img/tutorial/tutorialenus.JSON").subscribe
+    (response => { this.textos = response; 
+      console.log(' textos ==>', this.textos); return this.textos; });
   }
 
   goLogin() {

@@ -32,8 +32,5 @@ export class GlobalService {
   getUser() {
     return JSON.parse(localStorage.getItem('postLogin'));
   }
-
-
-
 }
 
