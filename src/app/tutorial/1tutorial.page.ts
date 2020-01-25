@@ -60,10 +60,8 @@ export class TutorialPage {
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {
-      this.checkIfNavDisabled(object, slideView);
-      
-    })
-  
+      this.checkIfNavDisabled(object, slideView);      
+    })  
   }
       //Move to previous slide
   slidePrev(object, slideView) {

@@ -1,16 +1,30 @@
 [
     {
-        "LAYOUT_APP_NAME": "MAINT24/7",
-        "PAGE_TITLE": "TUTORIAL",
-        "PAGE_BUTTON_1": "Forgot Password",
-        "PAGE_ICON_1": "recover-password.png",
-        "PAGE_BUTTON_2": "Sign up",
-        "PAGE_ICON_2": "newuser.png",
-        "PAGE_BUTTON_3": "Login",
-        "PAGE_ICON_3": "login.png"
+        "PAGE_LAYOUT": [
+            {
+                "name": "MAINT24/7",
+                "title": "TUTORIAL"
+            }
+        ]
     },
     {
-        "PAGE_SLIDES": [ 
+        "PAGE_BUTTONS": [
+            {
+                "icon": "recover-password.png",
+                "label": "Forgot Password"
+            },
+            {
+                "icon": "newuser.png ",
+                "label": "Sign up"
+            },
+            {
+                "icon": "login.png",
+                "label": "Login"
+            }
+        ]
+    },
+    {
+        "PAGE_SLIDES": [
             {
                 "id": 1,
                 "img": "slide1.png",
@@ -23,7 +37,7 @@
                 "title": "Manager your properties",
                 "text": "lts you know everything in real time, everything that is happening on your property, a dashboard for you to manage your property."
             },
-            {   
+            {
                 "id": 3,
                 "img": "slide3.png",
                 "title": "Manage Maintenance",
@@ -37,5 +51,4 @@
             }
         ]
     }
-    
 ]

@@ -4,6 +4,10 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { IDataTutorial } from './IDataTutorial';
+import { SyncRequestClient } from 'ts-sync-request/dist'
+
+import { GlobalService } from '../global.service';
+
 
 @Component({
   selector: 'app-tutorial',
@@ -21,41 +25,82 @@ export class TutorialPage implements OnInit {
   };
 
   public dataUrl: string;
-  public textos: any;
+  public alltexts: any;
+  public page_layout: any;
+  public page_buttons: any;
+  public page_slides: any;
+  public page_layout_name: string;
+  public page_layout_titulo: string;
   
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {}
+    public global: GlobalService
+  ) {
+    this.sliderOne =
+    {
+      isBeginningSlide: true,
+      isEndSlide: false,
+
+    }
+  }
 
   ngOnInit() {
-    this.textos = this.getData();
-    console.log(' Olha aqui os ----> ', this.textos);
+    this.alltexts = new SyncRequestClient().get<Response>("assets/img/tutorial/tutorialenus.JSON");
+    this.page_layout =  this.alltexts[0].PAGE_LAYOUT;
+    this.page_buttons = this.alltexts[1].PAGE_BUTTONS;
+    this.page_slides =  this.alltexts[2].PAGE_SLIDES;
+    this.page_layout_name = this.alltexts[0].PAGE_LAYOUT.name;
+    this.page_layout_titulo = this.alltexts[0].PAGE_LAYOUT.titulo;
   }
-
+  
   getData() {
-    this.http.get("assets/img/tutorial/tutorialenus.JSON").subscribe
-    (response => { this.textos = response; 
-      console.log(' textos ==>', this.textos); return this.textos; });
+    return this.http.get("assets/img/tutorial/tutorialenus.JSON");
   }
 
-  goLogin() {
-    this.router.navigate(['/login']);
+  goFunction( i: number ) {
+    if (i == 0) {
+      this.router.navigate(['/recover']);
+    } else if (i == 1 ) {
+      this.router.navigate(['/register']);
+    } else if (i == 2 ) {
+      this.router.navigate(['/login']);
+    }
+  }
+      
+  //Move to Next slide
+  slideNext(object, slideView) {
+    slideView.slideNext(500).then(() => {
+      this.checkIfNavDisabled(object, slideView);
+    })
+
+  }
+  //Move to previous slide
+  slidePrev(object, slideView) {
+    slideView.slidePrev(500).then(() => {
+      this.checkIfNavDisabled(object, slideView);
+    });;
   }
 
-  goSignup() {
-    this.router.navigate(['/register']);
+  //Method called when slide is changed by drag or navigation
+  SlideDidChange(object, slideView) {
+    this.checkIfNavDisabled(object, slideView);
   }
 
-  goRecover() {
-    this.router.navigate(['/recover']);
+  //Call methods to check if slide is first or last to enable disbale navigation  
+  checkIfNavDisabled(object, slideView) {
+    this.checkisBeginning(object, slideView);
+    this.checkisEnd(object, slideView);
   }
 
-  slideNext() {
-    this.slideWithNav.slideNext();
+  checkisBeginning(object, slideView) {
+    slideView.isBeginning().then((istrue) => {
+      object.isBeginningSlide = istrue;
+    });
   }
-
-  slidePrev() {
-    this.slideWithNav.slidePrev();
+  checkisEnd(object, slideView) {
+    slideView.isEnd().then((istrue) => {
+      object.isfEndSlide = istrue;
+    });
   }
 }

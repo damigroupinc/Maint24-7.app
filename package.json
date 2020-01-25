@@ -43,6 +43,7 @@
     "ionic-angular": "^3.9.9",
     "rxjs": "~6.5.1",
     "rxjs-compat": "^6.5.4",
+    "ts-sync-request": "^1.4.1",
     "tslib": "^1.9.0",
     "yean": "0.0.0",
     "zone.js": "~0.9.1"

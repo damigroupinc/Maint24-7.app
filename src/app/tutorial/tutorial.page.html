@@ -1,18 +1,56 @@
-<ion-slides paginationClickable=true initialSlide=0 loop=true autoplay=1000 speed=2000 #slideWithNav>
-
-  <ion-slide *ngFor="let item of textos">
-    <ion-item class="itemPosicao" color="dark">
-      {{item.id}}
-    </ion-item>
-    <img src="{{item.img}}">
-    <ion-item color="primary">
-      {{item.title}} | {{item.text}}
-    </ion-item>
-  </ion-slide>
-</ion-slides>
-
-<div class="swiper-button-next" (click)="slideNext()"></div>
-<div class="swiper-button-prev" (click)="slidePrev()"></div>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{global.name}} - {{page_layout_name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 
+<ion-content fullscreen>
+  
+    <span class="slider-nav arrow-prev" (click)="slidePrev(sliderOne,slideWithNav)">
+      <div class="prev-icon-custom custon-nav" [class.disabled]="sliderOne.isBeginningSlide"></div>
+    </span>
 
+    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav 
+         (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)"> 
+  
+       <ion-slide *ngFor="let item of page_slides">
+        
+          <img src="assets/img/tutorial/{{item.img}}" class="slide-image" />
+      <h2 class="slide-title">
+        {{item.title}}
+        {{page_layout.name}}
+      </h2>
+      <p>
+        {{item.text}}
+      </p>
+      </ion-slide>
+      </ion-slides>
+
+      <div class="swiper-button-next" (click)="slideNext(sliderOne,slideWithNav)"></div>
+      <div class="swiper-button-prev" (click)="slidePrev(sliderOne,slideWithNav)"></div>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col *ngFor="let item of page_buttons; index as i;">
+            <div>
+              
+              <ion-card (click)="goFunction(i)">
+                <ion-card-header>
+                  <div align="center">
+                    <img src="assets/img/tutorial/{{item.icon}}" class="slide-icone" />
+                    <br>
+                    {{item.label}}
+                  </div>
+                </ion-card-header>
+              </ion-card>
+            </div>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      </ion-content>
