@@ -3,54 +3,43 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{global.name}} - {{page_layout_name}}</ion-title>
+    <ion-title>{{ global.name }} - {{ page_layout_title }}</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content fullscreen>
-  
-    <span class="slider-nav arrow-prev" (click)="slidePrev(sliderOne,slideWithNav)">
-      <div class="prev-icon-custom custon-nav" [class.disabled]="sliderOne.isBeginningSlide"></div>
-    </span>
-
-    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav 
-         (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)"> 
-  
-       <ion-slide *ngFor="let item of page_slides">
-        
-          <img src="assets/img/tutorial/{{item.img}}" class="slide-image" />
+  <span class="slider-nav arrow-prev" (click)="slidePrev(sliderOne,slideWithNav)">
+    <div class="prev-icon-custom custon-nav" [class.disabled]="sliderOne.isBeginningSlide"></div>
+  </span>
+  <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+    (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+    <ion-slide *ngFor="let item of page_slides">
+      <img src="assets/img/tutorial/{{item.img}}" class="slide-image" />
       <h2 class="slide-title">
-        {{item.title}}
-        {{page_layout.name}}
+        {{ item.title }}
+        
       </h2>
       <p>
-        {{item.text}}
+        {{ item.text }}
       </p>
-      </ion-slide>
-      </ion-slides>
-
-      <div class="swiper-button-next" (click)="slideNext(sliderOne,slideWithNav)"></div>
-      <div class="swiper-button-prev" (click)="slidePrev(sliderOne,slideWithNav)"></div>
-      <ion-grid>
-        <ion-row>
-
-          <ion-col *ngFor="let item of page_buttons; index as i;">
-            <div>
-              
-              <ion-card (click)="goFunction(i)">
-                <ion-card-header>
-                  <div align="center">
-                    <img src="assets/img/tutorial/{{item.icon}}" class="slide-icone" />
-                    <br>
-                    {{item.label}}
-                  </div>
-                </ion-card-header>
-              </ion-card>
-            </div>
-          </ion-col>
-
-        </ion-row>
-      </ion-grid>
-
-      </ion-content>
+    </ion-slide>
+  </ion-slides>
+  <div class="swiper-button-next" (click)="slideNext(sliderOne,slideWithNav)"></div>
+  <div class="swiper-button-prev" (click)="slidePrev(sliderOne,slideWithNav)"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of page_buttons; index as i;">
+        <div>
+          <ion-card (click)="goFunction(i)">
+            <ion-card-header>
+              <div align="center">
+                <img src="assets/img/tutorial/{{item.icon}}" class="slide-icone" />
+                <br>
+                {{ item.label }}
+              </div>
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

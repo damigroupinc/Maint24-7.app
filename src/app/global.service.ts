@@ -9,7 +9,7 @@ export class GlobalService {
 
   public urlServer = 'http://134.209.71.179/api/';
   public version = '1.1.01151200-Android';
-  public name = 'Maint247';
+  public name = 'Maint24/7';
   public company = 'One Quality Inc';
   public published = '01/15/2020 12:00-AM MA-US';
   public website = 'maint247.com';

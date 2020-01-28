@@ -10,16 +10,16 @@
     {
         "PAGE_BUTTONS": [
             {
-                "icon": "recover-password.png",
-                "label": "Forgot Password"
+                "icon": "login.png",
+                "label": "Sign in"
             },
             {
                 "icon": "newuser.png ",
                 "label": "Sign up"
             },
             {
-                "icon": "login.png",
-                "label": "Login"
+                "icon": "recover-password.png",
+                "label": "Forgot Password"
             }
         ]
     },
@@ -28,26 +28,26 @@
             {
                 "id": 1,
                 "img": "slide1.png",
-                "title": "Welcome to",
-                "text": "is a practical, modern and simple manager propierty for landlords and tenants. Your main functions is manage your properties, manage maintenance of your units and rental receipt management."
+                "title": "Welcome to Maint24/7",
+                "text": "Maint24/7 app is a practical, modern and simple portal and tool for landlords and tenants to manage properties maintenance, contracts, and payments."
             },
             {
                 "id": 2,
                 "img": "slide2.png",
-                "title": "Manager your properties",
-                "text": "lts you know everything in real time, everything that is happening on your property, a dashboard for you to manage your property."
+                "title": "Manage your properties",
+                "text": "Get updates in real time, everything that is happening on your property, a dashboard for you to manage your property."
             },
             {
                 "id": 3,
                 "img": "slide3.png",
-                "title": "Manage Maintenance",
-                "text": "manages the maintenance of your units, the tenant can open an order, take photos and send to the application and and monitor the maintenance."
+                "title": "Maintenance",
+                "text": "Tenants are able to create work orders, photograph ongoing issues and get updates. All work orders are also stored the history."
             },
             {
                 "id": 4,
                 "img": "slide4.png",
-                "title": "Rental Receipt Management",
-                "text": "the tenant can pay the rent online and directly on the mobile, by transferring money directly to the owner's account via PayPal, there is no more delay."
+                "title": "Payment",
+                "text": "Tenants can pay rent online or by using their mobile device. PayPal alows payments to be make instantly or gives the option of reoccuring payments to made."
             }
         ]
     }

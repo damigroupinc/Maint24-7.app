@@ -3,7 +3,6 @@ import { ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { IDataTutorial } from './IDataTutorial';
 import { SyncRequestClient } from 'ts-sync-request/dist'
 
 import { GlobalService } from '../global.service';
@@ -30,7 +29,7 @@ export class TutorialPage implements OnInit {
   public page_buttons: any;
   public page_slides: any;
   public page_layout_name: string;
-  public page_layout_titulo: string;
+  public page_layout_title: string;
   
   constructor(
     private http: HttpClient,
@@ -41,7 +40,6 @@ export class TutorialPage implements OnInit {
     {
       isBeginningSlide: true,
       isEndSlide: false,
-
     }
   }
 
@@ -50,12 +48,8 @@ export class TutorialPage implements OnInit {
     this.page_layout =  this.alltexts[0].PAGE_LAYOUT;
     this.page_buttons = this.alltexts[1].PAGE_BUTTONS;
     this.page_slides =  this.alltexts[2].PAGE_SLIDES;
-    this.page_layout_name = this.alltexts[0].PAGE_LAYOUT.name;
-    this.page_layout_titulo = this.alltexts[0].PAGE_LAYOUT.titulo;
-  }
-  
-  getData() {
-    return this.http.get("assets/img/tutorial/tutorialenus.JSON");
+    this.page_layout_name = this.alltexts[0].PAGE_LAYOUT[0].name;
+    this.page_layout_title = this.alltexts[0].PAGE_LAYOUT[0].title;
   }
 
   goFunction( i: number ) {
@@ -75,6 +69,7 @@ export class TutorialPage implements OnInit {
     })
 
   }
+
   //Move to previous slide
   slidePrev(object, slideView) {
     slideView.slidePrev(500).then(() => {
@@ -98,6 +93,7 @@ export class TutorialPage implements OnInit {
       object.isBeginningSlide = istrue;
     });
   }
+
   checkisEnd(object, slideView) {
     slideView.isEnd().then((istrue) => {
       object.isfEndSlide = istrue;
