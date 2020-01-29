@@ -16,7 +16,7 @@
     <ion-card *ngFor="let item of listTodayOrders">
       <ion-card-content>
       <p *ngIf="item.id" style='font-size: 11px;'>
-        Order: {{ item.id }} Date: {{ item.date_created_string | date:"MM/dd/yyyy" }} <br />        
+        Work Order: {{ item.id }} <br> Date: {{ item.date_created_string | date:"MM/dd/yyyy" }} <br />        
       </p>
       <div *ngIf="item.building_name">
             <br />
@@ -75,11 +75,11 @@
           Approve 
         </ion-button>
         <!-- Only approver Work Order is the Manager and the status must be CLOSED -->                       
-        <ion-button color="secondary" class="pt-xs--4" ion-button                   
+        <ion-button color="secondary" class="pt-xs--2" ion-button                   
           (click)="historyOrder(
             item.id, item.building_name, item.unit_name, item.date_created_string, item.status)">
           <ion-icon name="logo-buffer"></ion-icon>
-          History 
+          History
         </ion-button> 
       </div>   
     </ion-card-content>    

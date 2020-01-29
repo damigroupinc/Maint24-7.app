@@ -54,11 +54,11 @@ export class TutorialPage implements OnInit {
 
   goFunction( i: number ) {
     if (i == 0) {
-      this.router.navigate(['/recover']);
+      this.router.navigate(['/login']);
     } else if (i == 1 ) {
       this.router.navigate(['/register']);
     } else if (i == 2 ) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/recover']);
     }
   }
       

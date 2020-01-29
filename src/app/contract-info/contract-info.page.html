@@ -10,11 +10,11 @@
   <form #loginForm='ngForm' autocomplete='off' class='login-form'>
 
     <ion-item>
-      <ion-label>Number: {{contract_number}} <br /></ion-label>
+      <ion-label>Contract Id: {{contract_number}} <br /></ion-label>
     </ion-item>
    
       <ion-item>
-        <ion-label>Name: <br /></ion-label>
+        <ion-label>Name Id: <br /></ion-label>
         <ion-input #inputRef value="name" name='name' [(ngModel)]='contract_name' type='name'>
         </ion-input>
       </ion-item>
@@ -34,7 +34,7 @@
 
       <ion-button color="success" class="pt-xs--4" [disabled]='!loginForm.form.valid' (click)="gosaveContract(contract_id, contract_name, description, clauses, inputRef)">
         <ion-icon name="checkmark-circle" size="small"></ion-icon>
-        Send
+        Submit
       </ion-button>
   </form>
 

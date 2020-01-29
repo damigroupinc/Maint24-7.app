@@ -1,10 +1,7 @@
-
-
 ion-toolbar {
     // TODO test transparent and fullscreen
     --background: transparent;
-    --border-color: transparent;
-    
+    --border-color: transparent;    
   }
   
   .swiper-slide {
@@ -42,8 +39,7 @@ ion-toolbar {
       color: var(--ion-text-color, #000000);
     }
   }
-  
-    
+      
   ion-card, ion-slide, .card-ios, .card-md {
     align-items: center;
     min-height: 7.50rem;

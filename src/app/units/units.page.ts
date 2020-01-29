@@ -149,7 +149,7 @@ export class UnitsPage implements OnInit {
         await alert.present();
       } */
 
-      header: 'Radio',
+      header: 'Contract Setup',
       inputs: texto,
       buttons: [
         {

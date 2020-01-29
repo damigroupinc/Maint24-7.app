@@ -30,9 +30,10 @@ ngOnInit() {
     user_id: this.userData.id,
     classe: 'TENANT',
   };        
+  console.log(this.postData);
   this.http.put<InterfaceFinance>
     (this.global.urlServer + 'listFinance', this.postData).
-    subscribe(data => { this.listFinance = data ; 
+    subscribe(data => { this.listFinance = data, console.log(data); 
     });
   }
 

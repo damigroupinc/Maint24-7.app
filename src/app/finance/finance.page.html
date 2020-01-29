@@ -1,62 +1,73 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button  defaultHref="home"></ion-back-button>
-  </ion-buttons>
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{ global.name }} - Finance</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
 
   <ion-card>
-  <ion-card-content>
-  <ion-grid>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+              <div align="center">
+              
+              <strong>
+                Due date
+              </strong>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div  align="center">
+              <strong>
+                Amount
+              </strong>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div align="center">
+              <strong >
+                Late Fees
+              </strong>
+            </div>
+          </ion-col>
+        </ion-row>
 
-    <ion-row>
-      <ion-col>             
-        <div>
-          <strong>
-            Due date
-          </strong>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <strong>
-          Qmount
-        </strong>
-      </div>
-    </ion-col>
-    <ion-col>
-      <div>
-        <strong>
-          Late Fees
-        </strong>
-        </div>
-      </ion-col>
-    </ion-row>
+        <ion-card *ngFor="let item of listFinance">
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
 
-    <ion-card *ngFor="let item of listFinance">
-  <ion-card-content>
-      <ion-col>
-          {{ item.datepaid }}
-      </ion-col>
-    
-      <ion-col>
-          {{ item.valuepaid }}
-      </ion-col>
-    
-      <ion-col>
-          {{ item.latepfee }}
-      </ion-col>
-    
+                <ion-col>
+                  <p>
+                    {{ item.datepaid }}
+                  </p>
+                </ion-col>
 
-  </ion-card-content>
-</ion-card>
+                <ion-col>
+                  <div align="right">
+                    <p>
+                      {{ item.amountpaid | currency:'$':true:'1.2-2' }}
+                    </p>
+                  </div>
+                </ion-col>
 
-  </ion-grid>
-  </ion-card-content>
+                <ion-col>
+                  <div align="right">
+                    <p>
+                      {{ item.latefee | currency:'$':true:'1.2-2'}}
+                    </p>
+                  </div>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+
+      </ion-grid>
+    </ion-card-content>
   </ion-card>
-
-
-

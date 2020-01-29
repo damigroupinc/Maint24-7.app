@@ -18,6 +18,7 @@
   <ion-card *ngFor="let item of listUnits">
     <ion-card-content>
 
+      Status:
       <ion-icon *ngIf="item.tenant" size="small" color="primary" ios="ios-key" md="md-key">
       </ion-icon>
       <label *ngIf="item.tenant" color="primary">
@@ -51,21 +52,21 @@
 
       <p>
         <ion-label *ngIf="item.name" color='primary' class="ion-text-left">
-          Unit: {{ item.name }}
+          Unit Address: {{ item.name }}
         </ion-label>
       </p>
 
 
       <p>
         <ion-label *ngIf="item.email" color='primary' class="ion-text-left">
-          E-mail: {{ item.email }}
+          Tenant E-mail: {{ item.email }}
         </ion-label>
 
         <ion-label *ngIf="item.phone" color='primary' class="ion-text-left">
-          Phone: {{ item.phone }}
+          Tenant Phone: {{ item.phone }}
         </ion-label>
         <ion-label *ngIf="item.tenant" color='primary' class="ion-text-left">
-          Tenant: {{ item.tenant }} Contract: {{ item.contract_id }}
+          Tenant: {{ item.tenant }} <br>Contract: {{ item.contract_id }}
         </ion-label>
       </p>
 
@@ -102,7 +103,7 @@
         
         <div *ngIf="item.tenant">
         <ion-button class="pt-xs--2" color="success" (click)="viewServiceOrders(item.tenant)">
-            <ion-icon ios="ios-construct" md="md-construct"></ion-icon>
+            <ion-icon ios="ios-construct" size="small" md="md-construct"></ion-icon>
           </ion-button>
         </div>
 

@@ -30,10 +30,11 @@ ion-toolbar {
     font-weight: 500;
   }
   
-  p {
-    padding: 0 40px;
+  p, ion-col {
+    padding: 0 00px;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 0.5;
+    align-items: center;
     color: var(--ion-color-step-600, #60646b);  
     b {
       color: var(--ion-text-color, #000000);
