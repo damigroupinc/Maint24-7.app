@@ -1,0 +1,11 @@
+
+Privacy - Camera Usage Description
+**********************************
+This app requests permission to use the camera to take pictures of the services to be executed, 
+those that have already been closed and photos to prove the quality of the service execution!
+
+Privacy - Calendars Usage Description
+**************************************
+We use the API created by our company to access our database of our own which contains our information and 
+which contains our proprietary data! We create our own database and our own API and consume the data 
+from our API to process our required information!

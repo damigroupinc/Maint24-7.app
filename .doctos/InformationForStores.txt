@@ -1,14 +1,16 @@
-Privacy - Camera Usage Description
-**********************************
-This app requests permission to use the camera to take pictures of the services to be executed, 
-those that have already been closed and photos to prove the quality of the service execution!
 
-Privacy - Calendars Usage Description
-**************************************
-We use the API created by our company to access our database of our own which contains our information and 
-which contains our proprietary data! We create our own database and our own API and consume the data 
-from our API to process our required information!
-Fixes some features from previous version. This feature 
+Description for Version 2.0
+***************************
+Maint24/7 app is a practical, modern and simple portal and tool for landlords and tenants to manage property maintenance, contracts, and payments.
+
+Manage your properties
+Get updates in real-time, everything that is happening on your property, a dashboard for you to manage your property.
+
+Maintenance
+Tenants can create work orders, photograph ongoing issues and get updates. All work orders have also stored history.
+
+Payment
+Tenants can pay rent online or by using their mobile device. PayPal allows payments to be made instantly or gives the option of reoccurring payments to make.
 
 Description for Version 1.2
 ***************************

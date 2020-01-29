@@ -1,0 +1,58 @@
+Etapa 1: Gerar o aplicativo principal
+	
+	execute:
+	ionic cordova build android --prod --release
+
+	isso gera o resultado:
+	platforms/android/build/outputs/apk/app-release-unsigned.apk
+	
+	renomeie o arquivo de saida:
+	cd platforms\android\app\build\outputs\apk\release
+	ren app-release-unsigned.apk maint247rel.apk
+
+Etapa 2 ->Esta etapa foi executada apenas para a versão 1.0 
+        e não é necessário gerar a chave outra vez, apenas copie 
+        o arquivo para a nova versão.)
+	
+	Gerar o par de chaves para o Build
+
+	execute:
+	keytool -genkey -v -keystore maint247.keystore -alias maint247 -keyalg RSA -keysize 2048 -validity 10000
+	Senha: Liw76kire26
+
+	isso gera o seguinte arquivo de saida:
+	maint247.keystore
+	esse arquivo deve ser guardado no servidor do aplicativo, no email e em uma possivel midia separada.
+
+Etapa 3)
+
+	Assinar com o jarsigner
+
+	execute:	
+	jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore maint247.keystore maint247.apk maint247cd 
+********
+	jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore maint247.keystore maint247rel.apk maint247rel
+********
+
+Etapa 4)
+
+	Assinar com o ZipAlign
+	antes de executar renomeie o arquivo fonte para: 
+	ren maint247.apk maint247zip.apk
+
+	execute:
+	
+    
+
+Etapa 5)
+
+	Pronto para publicar na PlayStore!
+	Va em frente!
+
+
+Sequencia exata do procedimento:
+ionic cordova build android --prod --release
+cd platforms\android\app\build\outputs\apk\release
+ren app-release-unsigned.apk maint247rel.apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore maint247.keystore maint247rel.apk maint247rel
+zipalign -v 4 maint247rel.apk maint247.apk
