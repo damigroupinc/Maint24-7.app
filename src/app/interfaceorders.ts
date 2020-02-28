@@ -1,9 +1,11 @@
-export interface InterfaceOrders{
+export interface InterfaceOrders {
   [x: string]: any;
   id: number;
   building_name: string;
   unit_name: string;
   user_name: string;
+  user_id: string;
+  user_classe: string;
   service_name: string;
   status: string;
 
@@ -16,7 +18,7 @@ export interface InterfaceOrders{
   date_process: string;
   date_closed: string;
   date_approved: string;
-  
+
   date_created_string: string;
   date_process_string: string;
   date_closed_string: string;

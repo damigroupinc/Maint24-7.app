@@ -13,16 +13,13 @@
   <ng-template [ngIf]="ImLandLord()">
     <!-- 
       Panel for:BUILDINGS/UNITS/CONTRACT/PROFILE
-    -->
-    
-      
-    <ion-grid>
-        
+    -->      
+    <ion-grid>        
       <ion-row>
       <ion-col>
         <div class="ion-padding">
           <ion-card>
-            <ion-card-header color="secondary" (click)="goUnits()">
+            <ion-card-header (click)="goUnits()">
               <div align="center">
                 <img src="../../assets/img/menu/properties.png" />
                 Properties
@@ -31,7 +28,6 @@
           </ion-card>
         </div>
       </ion-col>
-
       <ion-col>
         <div class="ion-padding">
           <ion-card>
@@ -45,7 +41,6 @@
         </div>
       </ion-col>
     </ion-row>
-
     <ion-row>
       <ion-col>
         <div class="ion-padding">
@@ -59,11 +54,23 @@
           </ion-card>
         </div>
       </ion-col>
+       <ion-col>
+        <div class="ion-padding">
+          <ion-card>
+            <ion-card-header color="secondary" (click)="goNotifications()">
+              <div align="center">
+                <img class="notification-button" *ngIf="numNotifications>0" src="../../assets/img/menu/belws.png" />                
+                <img class="notification-button" *ngIf="!(numNotifications>0)" src="../../assets/img/menu/belgs.png" />                
+                <ion-badge *ngIf="numNotifications>0" class="notifications-badge">{{numNotifications}}</ion-badge>
+                Notifications
+              </div>            
+            </ion-card-header>
+          </ion-card>
+        </div>
+      </ion-col>
     </ion-row>
-
     </ion-grid>
   </ng-template>
-
   <ng-template [ngIf]="ImTenant()">
     <!-- 
       Panel for: MOVE-IN/MOVE-OUT/REPAIR/RENT/CONTRACT/PROFILE
@@ -71,7 +78,6 @@
     <div class="topo" >
       <ion-grid>
         <ion-row>
-
           <ion-col>
             <div class="ion-padding">
               <ion-card> 

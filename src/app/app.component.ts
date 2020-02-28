@@ -18,20 +18,35 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },    
+    },
     {
       title: 'Move-In',
       url: '/movein',
       icon: 'movein'
-    },    
+    },
     {
       title: 'Move-out',
       url: '/moveout',
       icon: 'moveout'
     },
     {
-      title: 'profile',
-      url: '/profile',
+      title: 'Change Password',
+      url: '/recover',
+      icon: 'password'
+    },
+    {
+      title: 'Recover Password',
+      url: '/recover',
+      icon: 'password'
+    },
+    {
+      title: 'Avatar',
+      url: '/avatar',
+      icon: 'avatar'
+    },
+    {
+      title: 'Profile',
+      url: '/wizprofile',
       icon: 'contact'
     },
     {
@@ -44,7 +59,7 @@ export class AppComponent {
       url: '/tutorial',
       icon: 'about'
     }
-  ]; 
+  ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

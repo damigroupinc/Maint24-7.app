@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button  defaultHref="home"></ion-back-button>
   </ion-buttons>
-    <ion-title>{{ global.name }} - Close</ion-title>
+    <ion-title>Close</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -25,11 +25,11 @@
         <ion-textarea [(ngModel)]="description_closed" rows="2" placeholder="Description"></ion-textarea>
       </ion-item>
       <ion-footer>
-        <ion-button color="warning" ion-button icon-only (click) ="takePictureSO()">
+        <ion-button size="small" color="warning" ion-button icon-only (click) ="takePictureSO()">
           <ion-icon name="camera" size="small"></ion-icon>
-          Take Picture
+          Picture
         </ion-button>
-        <ion-button color="success" ion-button icon-only (click) ="sendPostRequest()">
+        <ion-button size="small" color="success" ion-button icon-only (click) ="sendPostRequest()">
           <ion-icon name="checkmark-circle" size="small"></ion-icon>
           Close
         </ion-button>

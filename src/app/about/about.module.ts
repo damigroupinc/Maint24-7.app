@@ -13,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ 
+  imports: [
     CommonModule,
     FormsModule,
     IonicModule,
@@ -21,4 +21,4 @@ const routes: Routes = [
   ],
   declarations: [AboutPage]
 })
-export class AboutPageModule {}
+export class AboutPageModule { }

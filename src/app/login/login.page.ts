@@ -69,6 +69,7 @@ export class LoginPage implements OnInit {
           "email": this.dataUser.email,
           "firstname": this.dataUser.firstname,
           "lastname": this.dataUser.lastname,
+          "image": this.dataUser.image,
         }
         this.saveUser(postData);
         this.presentToastOk();

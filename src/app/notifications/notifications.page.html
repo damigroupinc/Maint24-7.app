@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Notifications
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <ion-item *ngFor="let item of listNotifications">
+      <div *ngIf="checkTenLan(item.class); then thenBlock else elseBlock"></div>        
+        <ng-template #thenBlock>
+            <ion-item-sliding _ngcontent-cyu-c2="" track="landlord" class="md hydrated">
+              <ion-item _ngcontent-cyu-c2="" 
+                tabindex="0" ng-reflect-router-link="/app/tabs/schedule/session/3" 
+                class="item-label item md in-list ion-activatable ion-focusable hydrated">     
+                       
+                  <ion-label _ngcontent-cyu-c2="" class="sc-ion-label-md-h sc-ion-label-md-s md hydrated" >
+                  <ion-avatar slot="start">
+                    <img src="{{item.image}}">
+                  </ion-avatar> 
+                    <h3 _ngcontent-cyu-c2="">{{item.user}}</h3>
+                    <p _ngcontent-cyu-c2="">{{item.text}}<br>
+                      {{item.date}}{{item.status}}
+                    </p>
+                  </ion-label>
+              </ion-item>
+              <ion-item-options _ngcontent-cyu-c2="" class="md item-options-md item-options-end hydrated">
+                <ion-item-option _ngcontent-cyu-c2="" color="favorite" ng-reflect-color="favorite" 
+                  class="ion-color ion-color-favorite md ion-activatable hydrated">
+                  Favorite 
+                </ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>            
+        </ng-template>
+       <ng-template #elseBlock>
+           <ion-item-sliding _ngcontent-cyu-c2="" track="tenant" class="md hydrated">
+              <ion-item _ngcontent-cyu-c2="" 
+                tabindex="0" ng-reflect-router-link="/app/tabs/schedule/session/3" 
+                class="item-label item md in-list ion-activatable ion-focusable hydrated">     
+                   <ion-avatar slot="start">
+                    <img src="{{item.image}}">
+                  </ion-avatar>       
+                  <ion-label _ngcontent-cyu-c2="" class="sc-ion-label-md-h sc-ion-label-md-s md hydrated" >
+                     <h3 _ngcontent-cyu-c2="">{{item.original_username}}</h3>
+                    <p _ngcontent-cyu-c2="">{{item.text}}<br>
+                      <small>{{item.datecreated}}</small></p>
+                  </ion-label>
+              </ion-item>
+              <ion-item-options _ngcontent-cyu-c2="" class="md item-options-md item-options-end hydrated">
+                <ion-item-option _ngcontent-cyu-c2="" color="favorite" ng-reflect-color="favorite" 
+                  class="ion-color ion-color-favorite md ion-activatable hydrated">
+                  Favorite 
+                </ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+        </ng-template>
+    </ion-item>         
+
+</ion-content>

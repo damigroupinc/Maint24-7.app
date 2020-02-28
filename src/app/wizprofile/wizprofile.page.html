@@ -1,0 +1,241 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ global.name }} - Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class='ion-padding' class='loginPage' scroll='false'>
+  <ion-grid>
+    <span class="slider-nav arrow-prev" (click)="slidePrev(sliderOne,slideWithNav)">
+      <div class="prev-icon-custom custon-nav" [class.disabled]="sliderOne.isBeginningSlide"></div>
+    </span>
+    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+      (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+      <ion-slide>
+        <ion-grid style='height: 100%'>
+          <ion-row class="ion-align-items-center ion-justify-content-center" style='height: 80%'>
+            <ion-grid class='login-container'>
+
+              <ion-card>
+                <ion-card-header color="success">
+                  <ion-card-subtitle>                  
+                     <ion-label>                    
+                    {{ classe }}'S PROFILE
+                  </ion-label>
+
+                  <ion-avatar slot="end">
+                    <img src="{{image}}">
+                  </ion-avatar>
+
+                </ion-card-subtitle>
+              </ion-card-header>
+
+                <form #loginForm='ngForm' (ngSubmit)='login()' autocomplete='off' class='login-form'>
+                   <ion-item>
+                      <ion-label color="primary" position="floating">Username</ion-label>
+                      <ion-input name='username' id='username' type='text' required [(ngModel)]='username'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Email</ion-label>
+                      <ion-input name='email' id='email' type='email' required [(ngModel)]='email'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Phone</ion-label>
+                      <ion-input name='phone' id='phone' type='phone' required [(ngModel)]='phone'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+                   
+                    <br>
+
+                    <div align="center">
+                      <ion-button color="warning" size="small" class="pt-xs--4" ion-button (click)="takePicture()">
+                        <ion-icon name="camera" size="small"></ion-icon>
+                        Picture
+                      </ion-button>
+                      <ion-button color="success" size="small" class="pt-xs--4" ion-button (click)="updateUserProfile()"
+                        [disabled]='!loginForm.form.valid'>
+                        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+                        Submit
+                      </ion-button>
+                      <ion-button color="secondary" size="small" class="pt-xs--4" ion-button
+                        (click)="slideNext(sliderOne,slideWithNav)">
+                        <ion-icon name="arrow-round-forward"></ion-icon>
+                        Next
+                      </ion-button>
+                    </div>
+                    <br>
+
+              </form>
+                </ion-card>
+            </ion-grid>
+          </ion-row>
+        </ion-grid>
+
+      </ion-slide>
+
+      <ion-slide>
+        <ion-grid style='height: 100%'>
+          <ion-row class="ion-align-items-center ion-justify-content-center" style='height: 80%'>
+            <ion-grid class='login-container'>
+
+                 <ion-card>
+                <ion-card-header color="success">
+                  <ion-card-subtitle>                  
+                  <ion-label>                    
+                    {{ classe }}'S PROFILE
+                  </ion-label>
+                </ion-card-subtitle>
+              </ion-card-header>
+
+
+              <form #loginForm='ngForm' (ngSubmit)='login()' autocomplete='off' class='login-form'>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Address</ion-label>
+                      <ion-input name='address' id='address' type='address' required [(ngModel)]='address'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Country</ion-label>
+                      <ion-input name='country' id='country' type='country' required [(ngModel)]='country'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Zip Code</ion-label>
+                      <ion-input name='zipcode' id='zipcode' type='zipcode' required [(ngModel)]='zipcode'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">State </ion-label>
+                      <ion-input name='state' id='state' type='State' required [(ngModel)]='state'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">City</ion-label>
+                      <ion-input name='city' id='city' type='city' required [(ngModel)]='city'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+                    <br>
+                    <div align="center">
+                      <ion-button color="secondary" size="small" class="pt-xs--4" ion-button
+                        (click)="slidePrev(sliderOne,slideWithNav)">
+                        <ion-icon name="arrow-round-back" size="small"></ion-icon>
+                        Previus
+                      </ion-button>
+                      <ion-button color="warning" size="small" class="pt-xs--4" ion-button (click)="takePicture()">
+                        <ion-icon name="camera" size="small"></ion-icon>
+                        Take picture
+                      </ion-button>
+                      <ion-button color="success" size="small" class="pt-xs--4" ion-button
+                        (click)="updateUserProfile()">
+                        <!-- [disabled]='!loginForm.form.valid'> -->
+                        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+                        Submit
+                      </ion-button>
+                      <ion-button color="secondary" size="small" class="pt-xs--4" ion-button
+                        (click)="slideNext(sliderOne,slideWithNav)">
+                        <ion-icon name="arrow-round-forward"></ion-icon>
+                        Next
+                      </ion-button>
+                    </div>
+                    <br>
+
+                  
+              </form>
+              </ion-card>
+              </ion-grid>
+          </ion-row>
+            </ion-grid>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-grid style='height: 100%'>
+          <ion-row class="ion-align-items-center ion-justify-content-center" style='height: 80%'>
+            <ion-grid class='login-container'>
+
+              <ion-card>
+                <ion-card-header color="success">
+                  <ion-card-subtitle>                  
+                    <ion-label>                    
+                    {{ classe }}'S PROFILE
+                  </ion-label>
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <form #loginForm='ngForm' (ngSubmit)='login()' autocomplete='off' class='login-form'>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">First name<br /></ion-label>
+                      <ion-input name='firstname' id='firstname' type='firstname' required [(ngModel)]='firstname'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Last name<br /></ion-label>
+                      <ion-input name='lastname' id='lastname' type='lastname' required [(ngModel)]='lastname'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                      <ion-label color="primary" position="floating">Date of Birth <br /></ion-label>
+                      <ion-input name='dateofbirth' id='dateofbirth' type='date' required [(ngModel)]='dateofbirth'
+                        style="background-Color: '#red';">
+                      </ion-input>
+                    </ion-item>
+
+                    <br>
+                    <div align="center">
+                      <ion-button color="secondary" size="small" class="pt-xs--4" ion-button
+                        (click)="slidePrev(sliderOne,slideWithNav)">
+                        <ion-icon name="arrow-round-back" size="small"></ion-icon>
+                        Previus
+                      </ion-button>
+                      <ion-button color="warning" size="small" class="pt-xs--4" ion-button (click)="takePicture()">
+                        <ion-icon name="camera" size="small"></ion-icon>
+                        Take picture
+                      </ion-button>
+                      <ion-button color="success" size="small" class="pt-xs--4" ion-button
+                        (click)="updateUserProfile()" [disabled]='!loginForm.form.valid'>
+                        <!-- </ion-button> [disabled]='!loginForm.form.valid'> -->
+                        <ion-icon name="checkmark-circle" size="small"></ion-icon>
+                        Save
+                      </ion-button>
+
+                    </div>
+
+                    <br>
+                  
+              </form>
+
+                </ion-card>
+             </ion-grid>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </ion-grid>
+</ion-content>

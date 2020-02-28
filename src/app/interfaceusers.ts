@@ -1,4 +1,4 @@
-export interface InterfaceUsers{
+export interface InterfaceUsers {
   id: number;
   firstname: string;
   lastname: string;
@@ -6,7 +6,15 @@ export interface InterfaceUsers{
   email: string;
   phone: string;
   classe: string;
-  status: string; 
+  status: string;
+  country: string;
+  address: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  birth: string;
+  bloodtype: string;
   password: string;
+  image: string;
   accessTokens: any[];
 }

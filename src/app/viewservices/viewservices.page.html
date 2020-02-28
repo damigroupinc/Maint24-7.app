@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>  
-    <ion-title>{{ global.name }} - View Orders</ion-title>
+    <ion-title>View Orders</ion-title>
   </ion-toolbar>
 </ion-header> 
 
@@ -43,7 +43,7 @@
       </script>
       <br />
       <div class="text-xs-center">
-        <ion-button color="success" class="pt-xs--4" ion-button                   
+        <ion-button size="small" color="success" class="pt-xs--4" ion-button                   
           (click)="takePicture(
           item.id, item.building_name, item.unit_name, item.date_created_string, item.status
           )">        
@@ -51,7 +51,7 @@
           Take Picture        
         </ion-button> 
         <!-- Only start  Work Order is the Supervisor and the status must be OPENED -->
-        <ion-button color="primary" *ngIf="canStartOrder(item.status)" class="pt-xs--4" ion-button 
+        <ion-button size="small" color="primary" *ngIf="canStartOrder(item.status)" class="pt-xs--4" ion-button 
           (click)="startOrder( 
             item.id, item.building_name, item.unit_name, item.date_created_string, item.status
           )"> 
@@ -59,7 +59,7 @@
           Start 
         </ion-button>
         <!-- Only close Word Order is the Supervisor and the status must be PROCESS -->
-        <ion-button color="primary" *ngIf="canCloseOrder(item.status)" class="pt-xs--4" ion-button 
+        <ion-button size="small" color="primary" *ngIf="canCloseOrder(item.status)" class="pt-xs--4" ion-button 
           (click)="closeOrder(
             item.id, item.building_name, item.unit_name, item.date_created_string, item.status
           )"> 
@@ -67,15 +67,20 @@
           Close
         </ion-button>
         <!-- Only approver Work Order is the Manager and the status must be CLOSED -->                       
-        <ion-button color="primary" *ngIf="canApproveOrder(item.status)" class="pt-xs--4" ion-button                   
+        <ion-button size="small" color="primary" *ngIf="canApproveOrder(item.status)" class="pt-xs--4" ion-button                   
           (click)="approveOrder(
             item.id, item.building_name, item.unit_name, item.date_created_string, item.status
           )"> 
           <ion-icon name="checkmark-circle"></ion-icon>
           Approve 
         </ion-button>
+         <ion-button size="small" color="danger" *ngIf="canDeleteOrder(item.status, item.user_classe)" class="pt-xs--4" ion-button                   
+          (click)="deleteOrder(item.id)"> 
+          <ion-icon name="ios-trash"></ion-icon>
+          Delete 
+        </ion-button>
         <!-- Only approver Work Order is the Manager and the status must be CLOSED -->                       
-        <ion-button color="secondary" class="pt-xs--2" ion-button                   
+        <ion-button size="small" color="secondary" class="pt-xs--2" ion-button                   
           (click)="historyOrder(
             item.id, item.building_name, item.unit_name, item.date_created_string, item.status)">
           <ion-icon name="logo-buffer"></ion-icon>

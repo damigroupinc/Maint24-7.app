@@ -32,7 +32,7 @@ export class UnitsPage implements OnInit {
   constructor(
     public alertCtrl: AlertController,
     public global: GlobalService,
-    public http: HttpClient,    
+    public http: HttpClient,
     private router: Router,
     private toastController: ToastController) { }
 
@@ -42,7 +42,7 @@ export class UnitsPage implements OnInit {
   }
 
   viewServiceOrders(tenant: string) {
-    let $param = JSON.stringify({ id: tenant }); 
+    let $param = JSON.stringify({ id: tenant });
     this.router.navigate(['/viewservices/' + $param]);
   }
 
@@ -72,7 +72,7 @@ export class UnitsPage implements OnInit {
       if (i > 0) { texto = texto + ',' };
       var texto = texto + '{"name": "' + "radio" + i + '",';
       var texto = texto + ' "type": "radio",';
-      var texto = texto + ' "label": "' + dados[i].name + i + '",';
+      var texto = texto + ' "label": "' + dados[i].name + '",';
       var texto = texto + ' "value": "' + dados[i].id + '"';
       var texto = texto + ' }';
       i = i + 1;
@@ -149,7 +149,7 @@ export class UnitsPage implements OnInit {
         await alert.present();
       } */
 
-      header: 'Contract Setup',
+      header: 'Contracts',
       inputs: texto,
       buttons: [
         {
@@ -163,7 +163,6 @@ export class UnitsPage implements OnInit {
         {
           text: 'Ok',
           handler: (data) => {
-            console.log('Confirm Ok');
             console.log('OK ---> Data -> ' + JSON.stringify(data));
             // update record add id contract 
             this.postData = {
@@ -441,7 +440,7 @@ export class UnitsPage implements OnInit {
         },
       ],
       buttons: [
-         {
+        {
           text: 'Ok',
           handler: data => {
           }

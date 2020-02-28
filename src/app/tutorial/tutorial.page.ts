@@ -30,7 +30,7 @@ export class TutorialPage implements OnInit {
   public page_slides: any;
   public page_layout_name: string;
   public page_layout_title: string;
-  
+
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -45,23 +45,23 @@ export class TutorialPage implements OnInit {
 
   ngOnInit() {
     this.alltexts = new SyncRequestClient().get<Response>("assets/img/tutorial/tutorialenus.JSON");
-    this.page_layout =  this.alltexts[0].PAGE_LAYOUT;
+    this.page_layout = this.alltexts[0].PAGE_LAYOUT;
     this.page_buttons = this.alltexts[1].PAGE_BUTTONS;
-    this.page_slides =  this.alltexts[2].PAGE_SLIDES;
+    this.page_slides = this.alltexts[2].PAGE_SLIDES;
     this.page_layout_name = this.alltexts[0].PAGE_LAYOUT[0].name;
     this.page_layout_title = this.alltexts[0].PAGE_LAYOUT[0].title;
   }
 
-  goFunction( i: number ) {
+  goFunction(i: number) {
     if (i == 0) {
       this.router.navigate(['/login']);
-    } else if (i == 1 ) {
+    } else if (i == 1) {
       this.router.navigate(['/register']);
-    } else if (i == 2 ) {
+    } else if (i == 2) {
       this.router.navigate(['/recover']);
     }
   }
-      
+
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {

@@ -6,7 +6,6 @@
     <ion-title>{{ global.name }} - Units</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-item>
     <br />
@@ -17,18 +16,15 @@
   </ion-item>
   <ion-card *ngFor="let item of listUnits">
     <ion-card-content>
-
       Status:
       <ion-icon *ngIf="item.tenant" size="small" color="primary" ios="ios-key" md="md-key">
       </ion-icon>
       <label *ngIf="item.tenant" color="primary">
         - Rented
       </label>
-
       <ion-icon *ngIf="!item.tenant" size="small" color="primary" ios="ios-checkmark-circle-outline"
         md="md-checkmark-circle-outline">
       </ion-icon>
-
       <label *ngIf="!item.tenant">
         <label *ngIf="!item.phone">
           <label *ngIf="!item.email">
@@ -49,19 +45,15 @@
             </label>
         </label>
       </label>
-
       <p>
         <ion-label *ngIf="item.name" color='primary' class="ion-text-left">
           Unit Address: {{ item.name }}
         </ion-label>
       </p>
-
-
       <p>
         <ion-label *ngIf="item.email" color='primary' class="ion-text-left">
           Tenant E-mail: {{ item.email }}
         </ion-label>
-
         <ion-label *ngIf="item.phone" color='primary' class="ion-text-left">
           Tenant Phone: {{ item.phone }}
         </ion-label>
@@ -69,21 +61,16 @@
           Tenant: {{ item.tenant }} <br>Contract: {{ item.contract_id }}
         </ion-label>
       </p>
-
       <ion-item>
-
-        <ion-button class="pt-xs--2" color='tertiary' (click)="contracts(item.id)">
+        <ion-button class="pt-xs--2" color='secondary' (click)="contracts(item.id)">
           <ion-icon size="small" name="md-paper"></ion-icon>
         </ion-button>
-
-        <ion-button class="pt-xs--2" color='secondary' (click)="detailUnit(item.id, item.name, item.email, item.phone)">
+        <!--ion-button class="pt-xs--2" color='secondary' (click)="detailUnit(item.id, item.name, item.email, item.phone)">
           <ion-icon size="small" name="ios-list-box"></ion-icon>
-        </ion-button>
-
+        </ion-button-->
         <ion-button class="pt-xs--2" color='primary' (click)="updateUnit(item.id, item.name, item.email, item.phone)">
           <ion-icon size="small" name="create"></ion-icon>
         </ion-button>
-
         <div *ngIf="!item.tenant">
           <div *ngIf="!item.phone">
             <div *ngIf="!item.email">

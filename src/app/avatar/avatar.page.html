@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button  defaultHref="home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ global.name }} - Events</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  
+  <ion-card>
+    <ion-card-content>
+     
+      <img src="{{ photo }}" width="80%" height="80%"/>
+     
+      <ion-footer padding>
+        <ion-button color="warning"  class="pt-xs--4" ion-button  (click) ="takePicture()">
+          <ion-icon name="camera" size="small"></ion-icon>
+          Take Picture
+        </ion-button>
+        <ion-button color="success"  class="pt-xs--2" ion-button (click) ="sendHistoryRequest()">      
+          <ion-icon name="Send" size="small"></ion-icon>
+          Save
+        </ion-button>
+      </ion-footer>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -20,22 +20,23 @@ export class ListaPage implements OnInit {
   public description: string = '';
 
   constructor(
-                private navegar: Router,
-                public global: GlobalService,
-                public http: HttpClient ) {}
+    private navegar: Router,
+    public global: GlobalService,
+    public http: HttpClient) { }
 
   ngOnInit() {
     this.userData = this.getUser();
     this.http.put<InterfaceServices>
-    (this.global.urlServer + 'readServices', this.userData).
-    subscribe(data => { this.listServices = data; } );
+      (this.global.urlServer + 'readServices', this.userData).
+      subscribe(data => { this.listServices = data; });
   }
 
-  appointment($id: string, $description: string ) {
-    let $param = JSON.stringify({
-        id: $id,
-        description: $description
-    })
+  appointment($id: string, $description: string) {
+    let $param = JSON.stringify(({
+      id: $id,
+      description: $description
+    }))
+    console.log($param);
     this.navegar.navigate(['/neworder/' + $param])
   }
 

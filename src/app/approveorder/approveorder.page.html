@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button  defaultHref="home"></ion-back-button>
   </ion-buttons>
-    <ion-title>{{ global.name }} - Approve</ion-title>
+    <ion-title>Approve</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,11 +26,11 @@
         <ion-textarea [(ngModel)]="description_approved" rows="2" placeholder="Description..."></ion-textarea>
       </ion-item>
       <ion-footer ion-footer class=padding>
-        <ion-button color="warning" ion-button icon-only (click) ="takePictureSO()">
+        <ion-button size="small" color="warning" ion-button icon-only (click) ="takePictureSO()">
           <ion-icon name="camera" size="small"></ion-icon>
-          Take Picture
+          Picture
         </ion-button>
-        <ion-button color="success" ion-button icon-only (click) ="approvePostRequest()">
+        <ion-button size="small" color="success" ion-button icon-only (click) ="approvePostRequest()">
           <ion-icon name="checkmark-circle" size="small"></ion-icon>                                            
           Approve
         </ion-button>

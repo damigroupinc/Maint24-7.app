@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastController } from '@ionic/angular'; 
+import { ToastController } from '@ionic/angular';
 import { GlobalService } from '../global.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -13,17 +13,18 @@ export class WelcomePage implements OnInit {
 
   public userData: any;
   public postData: any;
-  public errorUpdateUserClasse: string = 'Sorry, wrong update your profile! Plase try again!';
-  public okUpdateUserClasse: string = 'Update your profile with success!';
 
-  constructor(private router: Router,
+  public strMessageUserError: string = 'Sorry, wrong update profile!';
+  public strMessageUserSuccess: string = 'Profile update with success!';
+
+  constructor(
+    private router: Router,
     public http: HttpClient,
-    private toastController: ToastController,  
     public global: GlobalService
-  ){}
-  
+  ) {}
+
   ngOnInit() {
-    this.userData = this.getUser();
+    this.userData = this.global.getUser();
   }
 
   gotoLandLord() {
@@ -35,21 +36,23 @@ export class WelcomePage implements OnInit {
       classe: this.userData.classe
     };
     this.http.put(this.global.urlServer + "classeToLandLord", this.postData)
-    .subscribe((data) => {
-      this.userData = data;
-      if ( this.userData.id == 0 ) {
-        // 0 = Nao encontrei o usuario cadastrado em nenhuma unidade nem com email e nem com telefone.
-        this.presentToast();
-      this.router.navigateByUrl('/login');
-    } else {        
-      error => {
-      this.presentToast();
-      console.log(error);
-    }}});    
-    this.saveUser(this.postData);
-    this.router.navigate(['/home']);
+      .subscribe((data) => {
+        this.userData = data;
+        if (this.userData.id == 0) {
+          // 0 = Nao encontrei o usuario cadastrado.
+          this.global.presentToastGeneric(this.strMessageUserError, 'danger');
+          this.router.navigateByUrl('/login');
+        } else {
+          error => {
+            this.global.presentToastGeneric(this.strMessageUserError, 'danger');
+            console.log(error);
+          }
+        }
+      });
+    this.global.saveUser(this.postData);
+    this.router.navigate(['/wizprofile']);
   }
-  
+
   gotoTenant() {
     this.postData = {
       id: this.userData.id,
@@ -59,36 +62,18 @@ export class WelcomePage implements OnInit {
     };
     this.http.put(this.global.urlServer + "classeToTenant", this.postData).subscribe((data) => {
       this.userData = data;
-      if ( this.userData.id == 0 ) {
+      if (this.userData.id == 0) {
         // 0 = Nao encontrei o usuario cadastrado em nenhuma unidade nem com email e nem com telefone.
-        this.presentToast();
-        this.router.navigate(['/login/']); 
-      } else { 
+        this.global.presentToastGeneric(this.strMessageUserError, 'danger');
+        this.router.navigate(['/login/']);
+      } else {
         this.postData.classe = 'TENANT';
-        this.saveUser(this.postData);
+        this.global.saveUser(this.postData);
         this.router.navigate(['/home']);
         return (false);
       }
     })
   }
 
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: this.errorUpdateUserClasse,
-      duration: 800,
-      animated: true,
-      showCloseButton: true,
-      color: "danger"
-    });
-    toast.present();
-  }
-
-  saveUser($postData: any) {
-    localStorage.setItem('postLogin', JSON.stringify($postData));
-  }
-
-  getUser() {
-    return JSON.parse(localStorage.getItem('postLogin'));
-  }
 
 }

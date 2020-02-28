@@ -17,53 +17,41 @@
           <ion-row>
             <ion-col>
               <ion-list inset>
-                <ion-label><strong>This profile is set to a {{ classe }}</strong> <br /> <br /></ion-label>
+                <ion-label><strong>{{ classe }}'s</strong> proffile<br /> <br /></ion-label>
                 <ion-item>
-                  <ion-label>First Name: <br /></ion-label>
+                  <ion-label>First Name<br /></ion-label>
                   <ion-input placeholder='First name' name='firstname' id='firstname' type='firstname' required
                     [(ngModel)]='firstname' style="background-Color: '#red';">
                   </ion-input>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Last Name: <br /></ion-label>
+                  <ion-label>Last Name<br /></ion-label>
                   <ion-input placeholder='Lastname' name='lastname' id='lastname' type='lastname' required
                     [(ngModel)]='lastname' style="background-Color: '#red';">
                   </ion-input>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Email: <br /></ion-label>
+                  <ion-label>Email<br /></ion-label>
                   <ion-input placeholder='Email' name='email' id='email' type='email' required [(ngModel)]='email'
                     style="background-Color: '#red';">
                   </ion-input>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Phone: <br /></ion-label>
+                  <ion-label>Phone<br /></ion-label>
                   <ion-input placeholder='phone' name='phone' id='phone' type='phone' required [(ngModel)]='phone'
                     style="background-Color: '#red';">
                   </ion-input>
                 </ion-item>
                 <ion-item>
-                  <ion-label>Username: <br /></ion-label>
+                  <ion-label>Username<br /></ion-label>
                   <ion-input placeholder='Username' name='username' id='username' type='text' required
                     [(ngModel)]='username' style="background-Color: '#red';">
-                  </ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Password: <br></ion-label>
-                  <ion-input password placeholder='Password' name='password' id='passwordField' type='password' required
-                    [(ngModel)]='password'>
-                  </ion-input>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Confirm Password: <br></ion-label>
-                  <ion-input password placeholder='ConfirmPassword' name='Confirmpassword' id='passwordField'
-                    type='password' required [(ngModel)]='confirmpassword'>
                   </ion-input>
                 </ion-item>
                 <ion-button color="success" class="pt-xs--4" ion-button (click)="updateUser()"
                   [disabled]='!loginForm.form.valid'>
                   <ion-icon name="checkmark-circle" size="small"></ion-icon>
-                  Send
+                  Submit
                 </ion-button>
               </ion-list>
             </ion-col>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Camera } from '@ionic-native/camera/ngx';
 import { CameraOptions } from '@ionic-native/camera/ngx';
-import { ServiceordersService} from '../serviceorders.service';
+import { ServiceordersService } from '../serviceorders.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 import { GlobalService } from '../global.service';
 
@@ -15,11 +15,11 @@ import { GlobalService } from '../global.service';
   styleUrls: ['./startorder.page.scss'],
 })
 export class StartorderPage {
-  
+
   public userData: any;
   public postData: any;
   public order_param: any;
-  
+
   public order_id: string;
   public order_building: string;
   public order_manager: string;
@@ -31,60 +31,34 @@ export class StartorderPage {
   public description_starter: string = "";
   public photo: string = '';
 
+  public strMessageWOok: string = 'Work Order Started!';
+  public strMessageWOerror: string = 'Error to start WorkOrder!';
+
   fileUrl: any = null;
   respData: any;
 
   constructor(
-    private camera: Camera, 
+    private camera: Camera,
     public serviceordersservice: ServiceordersService,
     public http: HttpClient,
-    private toastController: ToastController,
-    private navegar: Router,
+    public alertController: AlertController,
     private route: ActivatedRoute,
-    public global: GlobalService ) {}
+    private navegar: Router,
+    public global: GlobalService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.order_param = JSON.parse(params.get('id'));
     })
     this.order_id = this.order_param.id;
-    this.order_building = this.order_param.building;      
-    this.order_apt = this.order_param.apt;    
+    this.order_building = this.order_param.building;
+    this.order_apt = this.order_param.apt;
     this.order_date_opened_string = this.order_param.date_opened_string;
     this.order_status = this.order_param.status;
-    this.userData = this.getUser();
+    this.userData = this.global.getUser();
   }
 
-  sendPostRequest() {    
-    this.postData = {
-      id: this.order_param.id,
-      description_started: this.description_starter,
-      image: this.photo
-    };
-
-    this.http.put(this.global.urlServer + "startorder", this.postData)
-      .subscribe((data) => {}, 
-      error => {
-        this.presentToastError();
-      }
-    );
-   
-    this.postData = {
-      serviceorder_id: parseInt(this.order_id),
-      description: this.description_starter + ' |-> On Started',
-      image: this.photo,
-    }
-  
-    this.http.put(this.global.urlServer + "saveHistory", this.postData)
-      .subscribe((data) => {
-        this.presentToastOk();
-        this.navegar.navigateByUrl('/home');
-      }, error => {
-      }
-    );
-  }
-
-  takePictureSO() {      
+  takePictureSO() {
     this.photo = '';
     const options: CameraOptions = {
       quality: 50,
@@ -97,41 +71,63 @@ export class StartorderPage {
     }
 
     this.camera.getPicture(options)
-    .then((imageData) => {
-      let base64image = 'data:image/jpeg;base64,' + imageData;
-      this.photo = base64image;
-    }, (error) => {
-      console.error(error);
-    })
-    .catch((error) => {
-      console.error(error);
-    })       
+      .then((imageData) => {
+        let base64image = 'data:image/jpeg;base64,' + imageData;
+        this.photo = base64image;
+      }, (error) => {
+        console.error(error);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
   }
 
-  async presentToastOk() {
-    const toast = await this.toastController.create({
-      message: 'Work Order Approve!',
-      duration: 800,
-      animated: true,
-      mode: "ios",
-      color: 'success'
-    });
-    toast.present();
-  }  
-
-  async presentToastError() {
-    const toast = await this.toastController.create({
-      message: 'Sorry, wrong login! Plase try again!',
-      duration: 800,
-      animated: true,
-      mode: "ios",
-      color: 'danger'
-    });
-    toast.present();
-  } 
-  
-  getUser() {         
-    return JSON.parse(localStorage.getItem('postLogin'));
+  sendPostRequest() {
+    this.makeyouShure();
   }
 
+  async makeyouShure() {
+    let trueReturn = false;
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Are you shure start this WorkOrder?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Cancelado');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            this.startHTTPWorkOrder();
+            this.navegar.navigateByUrl('/home');
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+  startHTTPWorkOrder() {
+    this.postData = {
+      user_id: this.userData.id,
+      id: this.order_param.id,
+      description_started: this.description_starter,
+      image: this.photo
+    };
+
+    this.http.put(this.global.urlServer + "startorder", this.postData)
+      .subscribe((data) => {
+        this.global.presentToastGeneric(this.strMessageWOok, 'success');
+      },
+        error => {
+          this.global.presentToastGeneric(this.strMessageWOerror, 'danger');
+        }
+      );
+
+  }
 }
+

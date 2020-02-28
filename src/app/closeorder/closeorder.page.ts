@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { ServiceordersService} from '../serviceorders.service';
+import { ServiceordersService } from '../serviceorders.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 import { GlobalService } from '../global.service';
 
@@ -15,7 +15,7 @@ import { GlobalService } from '../global.service';
 })
 export class CloseorderPage {
   public userData: any;
-  
+
   public postData: any;
   public order_label: string;
   public description_closed: string = "";
@@ -29,61 +29,34 @@ export class CloseorderPage {
   public order_date_opened_string: string;
   public order_status: string;
 
-  fileUrl: any = null;
-  respData: any;
+  public strMessageWOok: string = 'Work Order Closed!';
+  public strMessageWOerror: string = 'Error to close WorkOrder!';
 
-  constructor( 
-    private camera: Camera, 
+  constructor(
+    private camera: Camera,
     public serviceordersservice: ServiceordersService,
     public http: HttpClient,
-    private toastController: ToastController,
     private navegar: Router,
     private route: ActivatedRoute,
-    public global: GlobalService  
-    ) {}
+    public alertController: AlertController,
+    public global: GlobalService
+  ) { }
 
-    ngOnInit() {
-      this.route.paramMap.subscribe(params => {
-        this.order_param = JSON.parse(params.get('id'));
-      })
-      this.order_id = this.order_param.id;
-      this.order_building = this.order_param.building;      
-      this.order_apt = this.order_param.apt;    
-      this.order_date_opened_string = this.order_param.date_opened_string;
-      this.order_status = this.order_param.status;
-      this.userData = this.getUser();
-    }
-  
-  sendPostRequest() {
-    this.postData = {
-      id: this.order_param.id,
-      description_closed: this.description_closed,
-      image: this.photo
-    };
-    this.http.put(this.global.urlServer + "closeorder", this.postData)
-      .subscribe((data) => {}, error => {
-        this.presentToastError();
-        console.log(error);
-      });    
-
-    this.postData = {
-      serviceorder_id: parseInt(this.order_id),
-      description_histories: this.description_closed + ' |-> On Closed',
-      image_histories: this.photo,
-      typeid_histories: this.userData.classe,
-      typename_histories: this.userData.name,
-      writeid_histories: this.userData.id 
-    }
-
-    this.http.put(this.global.urlServer + "historyorder", this.postData)
-      .subscribe((data) => {
-        this.presentToastOk();
-        this.navegar.navigateByUrl('/home');
-      }, error => {
-      });
+  ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.order_param = JSON.parse(params.get('id'));
+    })
+    this.order_id = this.order_param.id;
+    this.order_building = this.order_param.building;
+    this.order_apt = this.order_param.apt;
+    this.order_date_opened_string = this.order_param.date_opened_string;
+    this.order_status = this.order_param.status;
+    this.userData = this.global.getUser();
   }
-      
-  takePictureSO() { 
+
+
+
+  takePictureSO() {
     this.photo = '';
     const options: CameraOptions = {
       quality: 50,
@@ -96,37 +69,57 @@ export class CloseorderPage {
     }
 
     this.camera.getPicture(options)
-    .then((imageData) => {
-      let base64image = 'data:image/jpeg;base64,' + imageData;
-      this.photo = base64image;
-    }, (error) => {})
-    .catch((error) => {})    
+      .then((imageData) => {
+        let base64image = 'data:image/jpeg;base64,' + imageData;
+        this.photo = base64image;
+      }, (error) => { })
+      .catch((error) => { })
   }
 
-  async presentToastOk() {
-    const toast = await this.toastController.create({
-      message: 'Work Order closed.',
-      duration: 800,
-      animated: true,
-      mode: "ios",
-      color: 'success'
+  sendPostRequest() {
+    this.makeyouShure();
+  }
+
+  async makeyouShure() {
+    let trueReturn = false;
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Are you shure close this WorkOrder?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Cancelado');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            this.closeHTTPWorkOrder();
+            this.navegar.navigateByUrl('/home');
+          }
+        }
+      ]
     });
-    toast.present();
+    await alert.present();
   }
 
-  async presentToastError() {
-    const toast = await this.toastController.create({
-      message: 'Sorry, wrong login! Plase try again!',
-      duration: 800,
-      animated: true,
-      mode: "ios",
-      color: 'danger'
-    });
-    toast.present();
-  } 
-
-  getUser() {         
-    return JSON.parse(localStorage.getItem('postLogin'));
+  closeHTTPWorkOrder() {
+    this.postData = {
+      user_id: this.userData.id,
+      id: this.order_param.id,
+      description_closed: this.description_closed,
+      image: this.photo
+    };
+    this.http.put(this.global.urlServer + "closeorder", this.postData)
+      .subscribe((data) => {
+        this.global.presentToastGeneric(this.strMessageWOok, 'success');
+      },
+        error => {
+          this.global.presentToastGeneric(this.strMessageWOerror, 'danger');
+        }
+      );
   }
-  
 }
+

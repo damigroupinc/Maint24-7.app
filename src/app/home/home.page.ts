@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ToastController } from '@ionic/angular'; 
 import { GlobalService } from '../global.service';
 
 @Component({
@@ -13,6 +12,8 @@ import { GlobalService } from '../global.service';
 
 export class HomePage implements OnInit {
 
+  public HaveNotifications: boolean;
+  public numNotifications: number;
   public userData: any;
   public postData: any;
   public errorUpdateUserClasse: string = 'Sorry, wrong update your profile! Plase try again!';
@@ -21,20 +22,24 @@ export class HomePage implements OnInit {
   constructor(
     private router: Router,
     public http: HttpClient,
-    private toastController: ToastController,  
     public global: GlobalService,
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.userData = this.getUser();
+    this.userData = this.global.getUser();
+    this.numNotifications = this.global.searchNotifications(this.userData.id, this.userData.classe);
+  }
+
+  searchNotifications() {
+    return 10;
   }
 
   makeRepair() {
-      this.router.navigate(['/lista']);
+    this.router.navigate(['/lista']);
   }
 
   viewServiceOrders() {
-    let $param = JSON.stringify({ id: '0' }); 
+    let $param = JSON.stringify({ id: '0' });
     this.router.navigate(['/viewservices/' + $param]);
   }
 
@@ -61,10 +66,10 @@ export class HomePage implements OnInit {
   goContracts() {
     this.router.navigate(['/contract']);
   }
-  
-//this.router.navigateByUrl('/login');
-  //this.router.navigate(['/tenant/']);
 
+  goNotifications() {
+    this.router.navigate(['/notifications']);
+  }
 
   ImLandLord() {
     if (this.userData.classe == 'LANDLORD') { return true }
@@ -80,21 +85,6 @@ export class HomePage implements OnInit {
     if (this.userData.classe == 'USER') { return true }
     else { return false }
   }
-
-  getUser() {
-    return JSON.parse(localStorage.getItem('postLogin'));
-  }
-
-  async presentToast() {
-    const toast = await this.toastController.create({
-      message: this.errorUpdateUserClasse,
-      duration: 800,
-      animated: true,
-      showCloseButton: true,
-      color: "danger"
-    });
-    toast.present();
-  };  
 
 }
 

@@ -1,14 +1,17 @@
-/*ion-content{
-    --background: url('../../assets/img/background.jpg') 0 0/100% 100%;
-    --color:rgba(76,185,196,1) 0%;
-    }  */
+ion-content{
+    --background: rgb(196, 76, 156) 0% 100% 100%;
+    --color:rgb(196, 76, 122) 0%;
+    font-size: 3.0rem;
+    color: rgb(196, 76, 142) 0%;
+    margin-top: 0rem;
+}
 
   .login-container {
-      border-radius: 20px;
+      border-radius: 0px;
       opacity: 0.9;
       width: 50%;
       text-align: center;
-      background-color: white;
+      background-color: blue;
     }
   
     .login-logo{
@@ -31,5 +34,16 @@
         font-size: 3.0rem;
         color: white;
       }
+
     }
-  
+
+.wrapper {
+  height: 100%;
+  min-height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}

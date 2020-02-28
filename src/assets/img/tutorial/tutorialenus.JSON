@@ -29,25 +29,25 @@
                 "id": 1,
                 "img": "slide1.png",
                 "title": "Welcome to Maint24/7",
-                "text": "Maint24/7 app is a practical, modern and simple portal and tool for landlords and tenants to manage properties maintenance, contracts, and payments."
+                "text": "Maint24/7 is a practical, modern and simple tool for landlords and tenants to manage properties, maintenance, contracts and payments."
             },
             {
                 "id": 2,
                 "img": "slide2.png",
                 "title": "Manage your properties",
-                "text": "Get updates in real time, everything that is happening on your property, a dashboard for you to manage your property."
+                "text": "A portal in the palm of your hands that gives you live updates to keep you in the loop of everything that is happening at your property."
             },
             {
                 "id": 3,
                 "img": "slide3.png",
                 "title": "Maintenance",
-                "text": "Tenants are able to create work orders, photograph ongoing issues and get updates. All work orders are also stored the history."
+                "text": "Tenants are able to create work orders, photograph ongoing issues and get updates. All work orders are also stored on the history."
             },
             {
                 "id": 4,
                 "img": "slide4.png",
                 "title": "Payment",
-                "text": "Tenants can pay rent online or by using their mobile device. PayPal alows payments to be make instantly or gives the option of reoccuring payments to made."
+                "text": "Tenants can pay rent online or by using their mobile device. PayPal alows payments to be made instantly or gives the option of reoccuring payments."
             }
         ]
     }

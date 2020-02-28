@@ -15,22 +15,25 @@
         <ion-card-title>
           <ion-row class="ion-align-items-center ion-justify-content-center">
                 <ion-col class="ion-align-items-center">
-                  <img src='assets/img/logo.png' width='10%' height='10%'>
+                  <img src='../../assets/img/logo/logo.png' width='250px' height='250px'>
                 </ion-col>
               </ion-row>
           </ion-card-title>     
-      
     </ion-card-header>
 
-    <ion-card-content>
-        <ion-row class="ion-align-items-center ion-justify-content-center">
-        Version: {{global.version}}<br />
-        Date: {{global.published}} <br />
-        {{global.website}} <br />
-        Copyright © 2020 - {{global.company}} <br /> 
-        All rights reserved. <br />
-      </ion-row>
+      <ion-card-content>
+          <ion-row class="ion-align-items-center ion-justify-content-center">
+            <ion-label position="stacked center">
+              Version: {{global.version}}<br />
+              {{global.website}} <br />
+              Copyright © 2020 - {{global.company}} <br /> 
+              All rights reserved. <br />
+              <br>
+              <ion-icon name="calendar" slot="start"></ion-icon>
+              Date: {{global.published}} <br />
+            </ion-label>
+          </ion-row>
+      </ion-card-content>
 
-    </ion-card-content>
   </ion-card>
 </ion-content>

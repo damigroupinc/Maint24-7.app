@@ -38,8 +38,8 @@ export class ContractDetailsPage implements OnInit {
     this.userData = this.getUser();
     this.http.put<InterfaceContract>
       (this.global.urlServer + 'crudactions', this.postData).
-      subscribe(data => { this.listContracts = data; });     
-      this.presentToastGeneric('Contract deleted', 'success', 800);
+      subscribe(data => { this.listContracts = data; });
+    this.presentToastGeneric('Contract deleted', 'success', 800);
   }
 
   readContracts() {
@@ -52,7 +52,7 @@ export class ContractDetailsPage implements OnInit {
     this.userData = this.getUser();
     this.http.put<InterfaceContract>
       (this.global.urlServer + 'crudactions', this.postData).
-      subscribe(data => { this.listContracts = data; });
+      subscribe(data => { this.listContracts = data; console.log('nao li nenhum contrato:', data); });
   }
 
   goInfo(
@@ -69,11 +69,11 @@ export class ContractDetailsPage implements OnInit {
     info_signature: string,
     info_endcontract: string,
     info_movein: string,
-    info_moveout: string, 
+    info_moveout: string,
     info_paypalid: string,
 
-    ) {
-    this.saveContractLocal( 
+  ) {
+    this.saveContractLocal(
       info_id,
       info_number,
       info_name,
@@ -89,7 +89,7 @@ export class ContractDetailsPage implements OnInit {
       info_movein,
       info_moveout,
       info_paypalid,
-     );
+    );
     this.router.navigate(['/contract/contract/contractinfo']);
   }
 
@@ -107,10 +107,10 @@ export class ContractDetailsPage implements OnInit {
     info_signature: string,
     info_endcontract: string,
     info_movein: string,
-    info_moveout: string, 
+    info_moveout: string,
     info_paypalid: string,
   ) {
-    this.saveContractLocal( 
+    this.saveContractLocal(
       info_id,
       info_number,
       info_name,
@@ -126,7 +126,7 @@ export class ContractDetailsPage implements OnInit {
       info_movein,
       info_moveout,
       info_paypalid,
-   )
+    )
     this.router.navigate(['/contract/contract/contractfinance']);
   }
 
@@ -144,10 +144,10 @@ export class ContractDetailsPage implements OnInit {
     info_signature: string,
     info_endcontract: string,
     info_movein: string,
-    info_moveout: string, 
+    info_moveout: string,
     info_paypalid: string,
-    ) {
-    this.saveContractLocal( 
+  ) {
+    this.saveContractLocal(
       info_id,
       info_number,
       info_name,
@@ -163,10 +163,10 @@ export class ContractDetailsPage implements OnInit {
       info_movein,
       info_moveout,
       info_paypalid,
-      );
+    );
     this.router.navigate(['/contract/contract/contractdate']);
   }
-  
+
   saveContractLocal(
     info_id: string,
     info_number: string,
@@ -181,23 +181,23 @@ export class ContractDetailsPage implements OnInit {
     info_signature: string,
     info_endcontract: string,
     info_movein: string,
-    info_moveout: string, 
+    info_moveout: string,
     info_paypalid: string,
-    ) {
+  ) {
     let param = {
       id: info_id,
       number: info_number,
       name: info_name,
       description: info_description,
       clauses: info_clauses,
-      
+
       rent: info_rent,
       deposit: info_deposit,
       lastmonth: info_lastmonth,
       security: info_security,
       penalty: info_penalty,
       paypalid: info_paypalid,
-     
+
       signature: info_signature,
       endcontract: info_endcontract,
       movein: info_movein,
@@ -206,7 +206,7 @@ export class ContractDetailsPage implements OnInit {
     };
     localStorage.setItem('contract', JSON.stringify(param));
   }
-  
+
   goHome() {
     this.router.navigate(['/home']);
   }

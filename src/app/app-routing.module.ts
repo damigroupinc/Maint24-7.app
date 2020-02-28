@@ -33,6 +33,9 @@ const routes: Routes = [
   { path: 'contract-date', loadChildren: './contract-date/contract-date.module#ContractDatePageModule' },
   { path: 'payments', loadChildren: './payments/payments.module#PaymentsPageModule' },
   { path: 'finance', loadChildren: './finance/finance.module#FinancePageModule' },
+  { path: 'notifications', loadChildren: './notifications/notifications.module#NotificationsPageModule' },
+  { path: 'wizprofile', loadChildren: './wizprofile/wizprofile.module#WizprofilePageModule' },
+  { path: 'avatar', loadChildren: './avatar/avatar.module#AvatarPageModule' },
 ]
   
 @NgModule({
