@@ -38,7 +38,7 @@
         </ng-template>
        <ng-template #elseBlock>
            <ion-item-sliding _ngcontent-cyu-c2="" track="tenant" class="md hydrated">
-              <ion-item _ngcontent-cyu-c2="" 
+              <ion-item (click)="goSeeDocto(item.docto_id, item.kind)"  _ngcontent-cyu-c2="" 
                 tabindex="0" ng-reflect-router-link="/app/tabs/schedule/session/3" 
                 class="item-label item md in-list ion-activatable ion-focusable hydrated">     
                    <ion-avatar slot="start">

@@ -1,0 +1,15 @@
+First:
+sudo ionic repair
+sudo ionic serve --devapp
+sudo ionic cordova build iOS --prod --release
+
+Information for AppStore:
+
+Privacy - Camera Usage Description
+**********************************
+This app requests permission to use the camera to take pictures of the services to be executed, 
+those that have already been closed and photos to prove the quality of the service execution!
+
+Privacy - Calendars Usage Description
+**************************************
+We use the API created and access Maint247 database and create on own Calendar. The Maint247 will don't use your Calendar anytime, thank you!

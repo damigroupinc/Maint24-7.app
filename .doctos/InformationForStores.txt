@@ -1,4 +1,10 @@
 
+Description for Version 2.2
+***************************
+New version includes notifications, redefinition of layouts including photos of the user in the profile.
+
+Nova versao inclui notificacões, redefinição de lay-outs incluindo fotos do usuario no profile.
+
 Description for Version 2.0
 ***************************
 Maint24/7 app is a practical, modern and simple portal and tool for landlords and tenants to manage property maintenance, contracts, and payments.

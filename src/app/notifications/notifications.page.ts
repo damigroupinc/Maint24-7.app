@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { GlobalService } from '../global.service';
-import { InterfaceHistory } from '../interfacehistory';
-import { identifierModuleUrl } from '@angular/compiler';
 import { InterfaceNotifications } from 'app/interfaceNotifications';
+import { Router } from '@angular/router';
+
+import { GlobalService } from '../global.service';
 
 @Component({
   selector: 'app-notifications',
@@ -19,6 +19,7 @@ export class NotificationsPage implements OnInit {
   public userData: any;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     public http: HttpClient,
     public global: GlobalService
@@ -40,4 +41,10 @@ export class NotificationsPage implements OnInit {
       return false
     }
   }
+
+  goSeeDocto($docto_id, $kind) {
+    let $param = JSON.stringify({ id: $docto_id });
+    this.router.navigate(['/viewservices/' + $param]);
+  }
+
 }

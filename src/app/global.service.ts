@@ -10,10 +10,10 @@ import { InterfaceNotifications } from './interfaceNotifications'
 export class GlobalService {
 
   public urlServer = 'http://134.209.71.179/api/';
-  public version = '2.1.1292020-Android';
+  public version = '2.1.2282020-Android';
   public name = 'Maint24/7';
   public company = 'One Quality Inc';
-  public published = '01/29/2020 12:00-AM MA-US';
+  public published = '02/28/2020 12:00-AM MA-US';
   public website = 'maint247.com';
   public photo = '';
   public notifications: InterfaceNotifications;
